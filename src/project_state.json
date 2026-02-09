@@ -1,15 +1,16 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 5,
   "summary": "Build a website for KMI Fellowship of Churches (and Elohim’s International Revival Center) using the provided brand color palette, including core church information, ministries, outreach, leadership/governance details, an appointment scheduling request form (Wix Forms structure), and a dedicated “The Gathering at 6” service page/section.",
   "architectural_notes": [
     "Target platform implied: Wix (use Wix Forms for appointment scheduling).",
     "Use provided brand palette/usage guide: Gold #D4AF37, Deep Blue #0E2A47, Orange #E25822, Purple #5B2C83, Brown #6B4F2D, Neutral #F5F1E8; text #1C1C1C/#5F5F5F; white on dark.",
     "Appointment scheduling implemented as a request workflow (submit → review/confirm), not instant booking."
   ],
-  "known_issues": [],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Abstract church hero banner with warm light neutral background, deep midnight blue overlays, subtle gold accents and flame-inspired shapes (kmi-hero.dim_1920x800.png)\n- Minimal emblem-style logo mark featuring a cross/flame motif in gold and deep blue on transparent background (kmi-mark.dim_512x512.png)",
+  "known_issues": [
+    "Ministry seal images are not visible on the website as expected; user requests site update to include/display seals."
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-create-a-multi-page-church-website-for-kmi-fellowship-of-churches-including-references-to-elohim-s-international-revival-center-where-provided-with-clear-navigation-and-sections-pages-for-home-welcome-who-we-are-our-mission-what-to-expect-when-you-visit-our-ministries-community-outreach-connect-with-us-including-placeholders-for-service-times-location-contact-details-live-stream-sermons-link-and-social-media-links",
@@ -74,6 +75,22 @@
         "REQ-8"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-a-new-ministry-seals-section-to-the-our-ministries-page-that-visibly-displays-the-uploaded-ministry-seal-images-in-a-responsive-grid-clickable-to-view-larger",
+      "title": "Add a new \"Ministry Seals\" section to the Our Ministries page that visibly displays the uploaded ministry seal images in a responsive grid (clickable to view larger).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-all-uploaded-seal-related-image-assets-are-included-in-the-frontend-as-static-files-and-referenced-using-stable-public-paths-so-they-load-reliably-in-production-builds",
+      "title": "Ensure all uploaded seal-related image assets are included in the frontend as static files and referenced using stable public paths so they load reliably in production builds.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -110,6 +127,12 @@
     {
       "id": "AR-6",
       "summary": "Apply the provided brand color palette and UI usage guide across the site (buttons, links, header/nav, footer, special sections).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add uploaded image assets (ministry seals, event flyers, apostle seal/photo) to the appropriate website pages/sections so they appear on the live site.",
       "reqIds": [],
       "status": "pending"
     }

@@ -1,5 +1,6 @@
 import PageSection from '../components/PageSection';
 import { PageTitle, SectionTitle, BodyText } from '../components/Typography';
+import MinistrySealsSection from '../components/MinistrySealsSection';
 
 export default function MinistriesPage() {
   return (
@@ -57,6 +58,15 @@ export default function MinistriesPage() {
       </PageSection>
 
       <PageSection>
+        <SectionTitle>Ministry Seals</SectionTitle>
+        <BodyText>
+          Our ministry seals represent the heart and mission of KMI Fellowship. Each seal embodies our commitment to
+          faith, service, and community. View our official ministry seals and upcoming events below.
+        </BodyText>
+        <MinistrySealsSection />
+      </PageSection>
+
+      <PageSection background="muted">
         <SectionTitle>Get Involved</SectionTitle>
         <BodyText>
           Every ministry at KMI Fellowship exists to help you grow in your faith and discover your purpose. Whether
