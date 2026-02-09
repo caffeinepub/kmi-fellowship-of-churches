@@ -4,63 +4,73 @@
 
 @layer base {
     :root {
-        --radius: 0.625rem;
+        --radius: 0.75rem;
         
-        /* Brand Colors - KMI Fellowship */
-        --flame-gold: 0.72 0.15 85;
-        --royal-blue: 0.25 0.08 240;
-        --revival-orange: 0.62 0.18 35;
-        --anointed-purple: 0.42 0.12 295;
-        --earth-brown: 0.45 0.06 50;
-        --warm-neutral: 0.95 0.02 75;
+        /* Brand Colors - Black Apostolic & Holiness Church Palette */
+        --holy-gold: 0.75 0.18 65;
+        --royal-purple: 0.45 0.16 285;
+        --fire-red: 0.55 0.22 25;
+        --glory-burgundy: 0.35 0.14 15;
+        --deep-plum: 0.38 0.15 320;
+        --warm-cream: 0.92 0.04 75;
         
-        /* Semantic tokens */
-        --background: 0.95 0.02 75;
-        --foreground: 0.15 0 0;
-        --card: 1 0 0;
-        --card-foreground: 0.15 0 0;
-        --popover: 1 0 0;
-        --popover-foreground: 0.15 0 0;
-        --primary: 0.72 0.15 85;
-        --primary-foreground: 0.25 0.08 240;
-        --secondary: 0.42 0.12 295;
-        --secondary-foreground: 1 0 0;
-        --muted: 0.90 0.02 75;
-        --muted-foreground: 0.45 0 0;
-        --accent: 0.62 0.18 35;
-        --accent-foreground: 1 0 0;
+        /* Semantic tokens - Light mode with warm, celebratory palette */
+        --background: 0.97 0.01 65;
+        --foreground: 0.18 0.02 15;
+        --card: 0.99 0.005 70;
+        --card-foreground: 0.18 0.02 15;
+        --popover: 0.99 0.005 70;
+        --popover-foreground: 0.18 0.02 15;
+        --primary: 0.35 0.14 15;
+        --primary-foreground: 0.98 0.02 70;
+        --secondary: 0.45 0.16 285;
+        --secondary-foreground: 0.98 0.02 70;
+        --muted: 0.94 0.02 65;
+        --muted-foreground: 0.45 0.03 15;
+        --accent: 0.75 0.18 65;
+        --accent-foreground: 0.18 0.02 15;
         --destructive: 0.577 0.245 27.325;
         --destructive-foreground: 0.985 0 0;
-        --border: 0.85 0.02 75;
-        --input: 0.85 0.02 75;
-        --ring: 0.72 0.15 85;
-        --chart-1: 0.72 0.15 85;
-        --chart-2: 0.25 0.08 240;
-        --chart-3: 0.62 0.18 35;
-        --chart-4: 0.42 0.12 295;
-        --chart-5: 0.45 0.06 50;
+        --border: 0.88 0.02 65;
+        --input: 0.90 0.02 65;
+        --ring: 0.75 0.18 65;
+        --surface-elevated: 0.99 0.005 70;
+        --surface-subtle: 0.92 0.02 65;
+        --nav-bg: 0.12 0.04 15;
+        --nav-text: 0.98 0.02 70;
+        --nav-accent: 0.75 0.18 65;
+        --chart-1: 0.75 0.18 65;
+        --chart-2: 0.45 0.16 285;
+        --chart-3: 0.55 0.22 25;
+        --chart-4: 0.38 0.15 320;
+        --chart-5: 0.35 0.14 15;
     }
 
     .dark {
-        --background: 0.20 0.05 240;
-        --foreground: 0.95 0.02 75;
-        --card: 0.25 0.08 240;
-        --card-foreground: 0.95 0.02 75;
-        --popover: 0.25 0.08 240;
-        --popover-foreground: 0.95 0.02 75;
-        --primary: 0.72 0.15 85;
-        --primary-foreground: 0.25 0.08 240;
-        --secondary: 0.42 0.12 295;
-        --secondary-foreground: 1 0 0;
-        --muted: 0.30 0.06 240;
-        --muted-foreground: 0.70 0.02 75;
-        --accent: 0.62 0.18 35;
-        --accent-foreground: 1 0 0;
+        --background: 0.12 0.04 15;
+        --foreground: 0.96 0.02 70;
+        --card: 0.16 0.05 15;
+        --card-foreground: 0.96 0.02 70;
+        --popover: 0.16 0.05 15;
+        --popover-foreground: 0.96 0.02 70;
+        --primary: 0.75 0.18 65;
+        --primary-foreground: 0.12 0.04 15;
+        --secondary: 0.45 0.16 285;
+        --secondary-foreground: 0.98 0.02 70;
+        --muted: 0.20 0.06 15;
+        --muted-foreground: 0.75 0.03 70;
+        --accent: 0.75 0.18 65;
+        --accent-foreground: 0.12 0.04 15;
         --destructive: 0.704 0.191 22.216;
-        --destructive-foreground: 0.95 0.02 75;
-        --border: 0.30 0.06 240;
-        --input: 0.30 0.06 240;
-        --ring: 0.72 0.15 85;
+        --destructive-foreground: 0.96 0.02 70;
+        --border: 0.22 0.06 15;
+        --input: 0.22 0.06 15;
+        --ring: 0.75 0.18 65;
+        --surface-elevated: 0.18 0.05 15;
+        --surface-subtle: 0.14 0.04 15;
+        --nav-bg: 0.10 0.04 15;
+        --nav-text: 0.96 0.02 70;
+        --nav-accent: 0.75 0.18 65;
     }
 
     * {
@@ -69,33 +79,132 @@
     
     body {
         @apply bg-background text-foreground;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-family: 'Merriweather', 'Georgia', 'Times New Roman', serif;
     }
     
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Georgia', 'Times New Roman', serif;
-        font-weight: 600;
+        font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
     }
 }
 
 @layer components {
+    /* Button Components */
     .btn-primary {
-        @apply bg-[oklch(var(--flame-gold))] text-[oklch(var(--royal-blue))] hover:bg-[oklch(var(--revival-orange))] transition-colors font-semibold px-6 py-3 rounded-lg;
+        @apply bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 border-2 border-primary hover:border-accent;
     }
     
     .btn-secondary {
-        @apply bg-[oklch(var(--anointed-purple))] text-white hover:bg-[oklch(var(--flame-gold))] hover:text-[oklch(var(--royal-blue))] transition-colors font-semibold px-6 py-3 rounded-lg;
+        @apply bg-accent text-accent-foreground hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 border-2 border-accent hover:border-secondary;
     }
     
+    /* Link Styles */
     .link-default {
-        @apply text-[oklch(var(--royal-blue))] hover:text-[oklch(var(--revival-orange))] transition-colors;
+        @apply text-accent hover:text-secondary transition-colors duration-200 underline-offset-4 hover:underline font-semibold;
     }
     
+    /* Navigation Link States */
+    .nav-link {
+        @apply text-nav-text hover:text-nav-accent transition-all duration-300 font-semibold relative;
+    }
+    
+    .nav-link-active {
+        @apply text-nav-accent;
+    }
+    
+    .nav-link-active::after {
+        content: '';
+        @apply absolute -bottom-1 left-0 right-0 h-0.5 bg-nav-accent;
+    }
+    
+    /* Special Content Blocks */
     .scripture-block {
-        @apply bg-[oklch(var(--anointed-purple))] text-white p-6 rounded-lg italic;
+        @apply relative bg-gradient-to-br from-secondary/20 via-secondary/10 to-transparent border-l-8 border-accent text-foreground p-8 rounded-r-2xl italic shadow-lg;
+        background-image: 
+            linear-gradient(to bottom right, oklch(var(--secondary) / 0.2), oklch(var(--secondary) / 0.1), transparent),
+            url('/assets/generated/holiness-texture-tile.dim_1024x1024.png');
+        background-blend-mode: overlay;
+        background-size: auto, 400px 400px;
+    }
+    
+    .scripture-block::before {
+        content: '"';
+        @apply absolute -top-4 left-4 text-8xl text-accent/30 font-serif leading-none;
     }
     
     .event-highlight {
-        @apply border-2 border-[oklch(var(--flame-gold))] bg-gradient-to-br from-[oklch(var(--warm-neutral))] to-white p-6 rounded-lg;
+        @apply relative border-4 border-accent bg-gradient-to-br from-surface-elevated via-surface-elevated to-accent/5 p-8 rounded-2xl shadow-2xl overflow-hidden;
+    }
+    
+    .event-highlight::before {
+        content: '';
+        @apply absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-accent via-secondary to-accent;
+    }
+    
+    /* Card Patterns */
+    .card-surface {
+        @apply bg-card border-2 border-border rounded-2xl shadow-md hover:shadow-2xl hover:border-accent/50 transition-all duration-300;
+    }
+    
+    .card-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+    }
+    
+    /* Section Patterns */
+    .section-spacing {
+        @apply py-16 md:py-20 lg:py-28;
+    }
+    
+    .section-title-spacing {
+        @apply mb-10;
+    }
+    
+    /* Decorative Elements */
+    .ornamental-divider {
+        @apply relative flex items-center justify-center my-8;
+    }
+    
+    .ornamental-divider::after {
+        content: '';
+        @apply block w-48 h-12 bg-contain bg-center bg-no-repeat opacity-60;
+        background-image: url('/assets/generated/holiness-divider.dim_1600x200.png');
+    }
+    
+    .textured-surface {
+        background-image: url('/assets/generated/holiness-texture-tile.dim_1024x1024.png');
+        background-size: 400px 400px;
+        background-blend-mode: overlay;
+    }
+    
+    /* Icon + Text Card Pattern */
+    .icon-card {
+        @apply card-surface p-8 flex gap-6 hover:scale-[1.02] transition-transform duration-300;
+    }
+    
+    .icon-card-icon {
+        @apply text-accent shrink-0;
+    }
+    
+    .icon-card-title {
+        @apply text-2xl font-bold text-primary mb-3;
+    }
+    
+    .icon-card-text {
+        @apply text-foreground leading-relaxed text-lg;
+    }
+    
+    /* Enhanced Section Titles */
+    .section-title-decorated {
+        @apply relative inline-block;
+    }
+    
+    .section-title-decorated::after {
+        content: '';
+        @apply absolute -bottom-3 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-accent to-transparent;
     }
 }
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Merriweather:wght@400;700&display=swap');
+

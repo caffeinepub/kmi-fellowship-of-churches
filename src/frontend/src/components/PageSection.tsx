@@ -16,8 +16,9 @@ export default function PageSection({ children, className = '', background = 'de
   }[background];
 
   return (
-    <section id={id} className={`${bgClass} ${noPadding ? '' : 'py-12 md:py-16 lg:py-20'} ${className}`}>
+    <section id={id} className={`${bgClass} ${noPadding ? '' : 'section-spacing'} ${className}`}>
       <div className="container mx-auto px-4 max-w-6xl">{children}</div>
     </section>
   );
 }
+

@@ -66,13 +66,20 @@ export default {
                     border: 'oklch(var(--sidebar-border))',
                     ring: 'oklch(var(--sidebar-ring))'
                 },
-                // Brand colors
-                'flame-gold': 'oklch(var(--flame-gold))',
-                'royal-blue': 'oklch(var(--royal-blue))',
-                'revival-orange': 'oklch(var(--revival-orange))',
-                'anointed-purple': 'oklch(var(--anointed-purple))',
-                'earth-brown': 'oklch(var(--earth-brown))',
-                'warm-neutral': 'oklch(var(--warm-neutral))'
+                // Surface tokens
+                'surface-elevated': 'oklch(var(--surface-elevated))',
+                'surface-subtle': 'oklch(var(--surface-subtle))',
+                // Navigation tokens
+                'nav-bg': 'oklch(var(--nav-bg))',
+                'nav-text': 'oklch(var(--nav-text))',
+                'nav-accent': 'oklch(var(--nav-accent))',
+                // Brand colors (available for specific accent use)
+                'holy-gold': 'oklch(var(--holy-gold))',
+                'royal-purple': 'oklch(var(--royal-purple))',
+                'fire-red': 'oklch(var(--fire-red))',
+                'glory-burgundy': 'oklch(var(--glory-burgundy))',
+                'deep-plum': 'oklch(var(--deep-plum))',
+                'warm-cream': 'oklch(var(--warm-cream))'
             },
             borderRadius: {
                 lg: 'var(--radius)',
@@ -80,11 +87,17 @@ export default {
                 sm: 'calc(var(--radius) - 4px)'
             },
             boxShadow: {
-                xs: '0 1px 2px 0 rgba(0,0,0,0.05)'
+                xs: '0 1px 2px 0 rgba(0,0,0,0.05)',
+                sm: '0 2px 4px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)',
+                md: '0 4px 8px -1px rgba(0,0,0,0.15), 0 2px 4px -2px rgba(0,0,0,0.1)',
+                lg: '0 10px 20px -3px rgba(0,0,0,0.2), 0 4px 6px -4px rgba(0,0,0,0.1)',
+                xl: '0 20px 30px -5px rgba(0,0,0,0.25), 0 8px 10px -6px rgba(0,0,0,0.1)',
+                '2xl': '0 25px 50px -12px rgba(0,0,0,0.35)'
             },
             fontFamily: {
-                sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-                serif: ['Georgia', 'Times New Roman', 'serif']
+                sans: ['Merriweather', 'Georgia', 'Times New Roman', 'serif'],
+                serif: ['Playfair Display', 'Georgia', 'Times New Roman', 'serif'],
+                display: ['Playfair Display', 'Georgia', 'Times New Roman', 'serif']
             },
             keyframes: {
                 'accordion-down': {
@@ -94,13 +107,19 @@ export default {
                 'accordion-up': {
                     from: { height: 'var(--radix-accordion-content-height)' },
                     to: { height: '0' }
+                },
+                'shimmer': {
+                    '0%': { backgroundPosition: '-200% 0' },
+                    '100%': { backgroundPosition: '200% 0' }
                 }
             },
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
-                'accordion-up': 'accordion-up 0.2s ease-out'
+                'accordion-up': 'accordion-up 0.2s ease-out',
+                'shimmer': 'shimmer 3s ease-in-out infinite'
             }
         }
     },
     plugins: [typography, containerQueries, animate]
 };
+

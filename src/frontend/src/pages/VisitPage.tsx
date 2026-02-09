@@ -18,39 +18,39 @@ export default function VisitPage() {
       <PageSection background="muted">
         <SectionTitle>You Can Expect</SectionTitle>
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white p-6 rounded-lg flex gap-4">
-            <Heart className="text-[oklch(var(--flame-gold))] shrink-0" size={32} />
+          <div className="icon-card">
+            <Heart className="icon-card-icon" size={32} />
             <div>
-              <h3 className="text-xl font-bold text-[oklch(var(--royal-blue))] mb-2">A Warm and Welcoming Atmosphere</h3>
-              <p className="text-foreground leading-relaxed">
+              <h3 className="icon-card-title">A Warm and Welcoming Atmosphere</h3>
+              <p className="icon-card-text">
                 From the moment you arrive, you'll be greeted with genuine warmth and hospitality. We're here to make
                 you feel at home.
               </p>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-lg flex gap-4">
-            <Music className="text-[oklch(var(--flame-gold))] shrink-0" size={32} />
+          <div className="icon-card">
+            <Music className="icon-card-icon" size={32} />
             <div>
-              <h3 className="text-xl font-bold text-[oklch(var(--royal-blue))] mb-2">Passionate, Spirit-Filled Worship</h3>
-              <p className="text-foreground leading-relaxed">
+              <h3 className="icon-card-title">Passionate, Spirit-Filled Worship</h3>
+              <p className="icon-card-text">
                 Experience authentic worship that honors God and creates space for His presence to move among us.
               </p>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-lg flex gap-4">
-            <BookOpen className="text-[oklch(var(--flame-gold))] shrink-0" size={32} />
+          <div className="icon-card">
+            <BookOpen className="icon-card-icon" size={32} />
             <div>
-              <h3 className="text-xl font-bold text-[oklch(var(--royal-blue))] mb-2">Relevant, Bible-Based Teaching</h3>
-              <p className="text-foreground leading-relaxed">
+              <h3 className="icon-card-title">Relevant, Bible-Based Teaching</h3>
+              <p className="icon-card-text">
                 Receive practical, life-giving teaching rooted in Scripture that speaks to your everyday life.
               </p>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-lg flex gap-4">
-            <Users className="text-[oklch(var(--flame-gold))] shrink-0" size={32} />
+          <div className="icon-card">
+            <Users className="icon-card-icon" size={32} />
             <div>
-              <h3 className="text-xl font-bold text-[oklch(var(--royal-blue))] mb-2">Opportunities for Growth</h3>
-              <p className="text-foreground leading-relaxed">
+              <h3 className="icon-card-title">Opportunities for Growth</h3>
+              <p className="icon-card-text">
                 Connect with opportunities for prayer, spiritual growth, and meaningful relationships with a church
                 family that values love, unity, and truth.
               </p>

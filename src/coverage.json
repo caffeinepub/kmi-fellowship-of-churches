@@ -1,72 +1,115 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-09T06:39:06.018Z",
+  "generatedAt": "2026-02-09T20:18:21.191Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 2,
+    "total": 5,
+    "implemented": 5,
     "items": [
       {
-        "id": "REQ-10",
-        "summary": "Ensure all uploaded seal-related image assets are included in the frontend as static files and referenced using stable public paths so they load reliably in production builds.",
+        "id": "REQ-1",
+        "summary": "Update the global design theme to add more color, energy, and “flare” while reflecting a Black Apostolic & Holiness church aesthetic that still feels welcoming to a mixed-denomination audience; apply the theme consistently across all pages (nav, hero, sections, cards, typography, buttons, links, and special blocks).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/ministry-seals/F0B90583-110F-4D38-A623-55660CA4DF70.png",
-          "frontend/public/assets/ministry-seals/The Gathering at 6 launch service.png",
-          "frontend/public/assets/ministry-seals/ChatGPT Image Feb 5, 2026 at 11_34_19 PM.png",
-          "frontend/public/assets/ministry-seals/church.png",
-          "frontend/public/assets/ministry-seals/save the date with us.png",
-          "frontend/public/assets/ministry-seals/save the date with us-1.png",
-          "frontend/public/assets/ministry-seals/The Gathering at 6 launch service-1.png",
-          "frontend/public/assets/ministry-seals/F0B90583-110F-4D38-A623-55660CA4DF70-1.png",
-          "frontend/public/assets/ministry-seals/church-1.png",
-          "frontend/public/assets/ministry-seals/ChatGPT Image Feb 5, 2026 at 11_34_19 PM-1.png",
-          "frontend/public/assets/ministry-seals/save the date with us-2.png",
-          "frontend/public/assets/ministry-seals/church-2.png",
-          "frontend/public/assets/ministry-seals/The Gathering at 6 launch service-2.png",
-          "frontend/public/assets/ministry-seals/F0B90583-110F-4D38-A623-55660CA4DF70-2.png",
-          "frontend/public/assets/ministry-seals/ChatGPT Image Feb 5, 2026 at 11_34_19 PM-2.png",
-          "frontend/src/content/ministrySeals.ts",
-          "frontend/src/components/MinistrySealsSection.tsx"
+          "frontend/src/index.css",
+          "frontend/src/components/Typography.tsx",
+          "frontend/src/components/PageSection.tsx",
+          "frontend/src/components/home/UpcomingEventsSection.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/content/ministrySeals.ts",
-          "frontend/src/components/MinistrySealsSection.tsx"
+          "frontend/src/index.css",
+          "frontend/src/components/Typography.tsx",
+          "frontend/src/components/PageSection.tsx",
+          "frontend/src/components/home/UpcomingEventsSection.tsx"
         ]
       },
       {
-        "id": "REQ-9",
-        "summary": "Add a new \"Ministry Seals\" section to the Our Ministries page that visibly displays the uploaded ministry seal images in a responsive grid (clickable to view larger).",
+        "id": "REQ-2",
+        "summary": "Revise Tailwind theme tokens and component utility classes in frontend/src/index.css to support the new look (e.g., deeper near-black/nav surfaces, warm gold accents, richer secondary highlights, improved section surface contrast), and ensure accessible contrast for text, links, and buttons.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/content/ministrySeals.ts",
-          "frontend/src/utils/publicAssetUrl.ts",
-          "frontend/src/components/MinistrySealsSection.tsx",
-          "frontend/src/pages/MinistriesPage.tsx"
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
         ],
         "matchedFiles": [
-          "frontend/src/content/ministrySeals.ts",
-          "frontend/src/utils/publicAssetUrl.ts",
-          "frontend/src/components/MinistrySealsSection.tsx",
-          "frontend/src/pages/MinistriesPage.tsx"
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Restyle the header and footer to match the updated theme: enhance background treatment (e.g., subtle gradient or elevated dark surface), improve active link styling, and add tasteful accents that convey a celebratory church feel while keeping all routes and labels unchanged.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/SiteNav.tsx",
+          "frontend/src/components/SiteFooter.tsx",
+          "frontend/src/components/PrimaryCtas.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/SiteNav.tsx",
+          "frontend/src/components/SiteFooter.tsx",
+          "frontend/src/components/PrimaryCtas.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Enhance the Home page hero presentation to align with the new aesthetic (richer overlay, improved contrast, more dramatic/celebratory feel) while keeping existing hero layout and CTAs intact.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/public/assets/generated/kmi-hero-holiness.dim_1920x800.png"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/public/assets/generated/kmi-hero-holiness.dim_1920x800.png"
+        ]
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Add subtle visual “flair” elements that can be reused across the site (e.g., ornamental dividers, subtle texture overlays, or accent patterns) and apply them sparingly to key areas such as the hero, section headers, and special blocks without cluttering the UI.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/holiness-divider.dim_1600x200.png",
+          "frontend/public/assets/generated/holiness-texture-tile.dim_1024x1024.png",
+          "frontend/src/index.css",
+          "frontend/src/components/Typography.tsx",
+          "frontend/src/components/BrandSections.tsx",
+          "frontend/src/pages/HomePage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/holiness-divider.dim_1600x200.png",
+          "frontend/public/assets/generated/holiness-texture-tile.dim_1024x1024.png",
+          "frontend/src/index.css",
+          "frontend/src/components/Typography.tsx",
+          "frontend/src/components/BrandSections.tsx",
+          "frontend/src/pages/HomePage.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "build-template/README.md",
+    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/MinistrySealsSection.tsx",
-    "frontend/src/content/ministrySeals.ts",
-    "frontend/src/pages/MinistriesPage.tsx",
-    "frontend/src/utils/publicAssetUrl.ts",
+    "frontend/public/assets/generated/holiness-divider.dim_1600x200.png",
+    "frontend/public/assets/generated/holiness-texture-tile.dim_1024x1024.png",
+    "frontend/public/assets/generated/kmi-hero-holiness.dim_1920x800.png",
+    "frontend/src/components/BrandSections.tsx",
+    "frontend/src/components/PageSection.tsx",
+    "frontend/src/components/PrimaryCtas.tsx",
+    "frontend/src/components/SiteFooter.tsx",
+    "frontend/src/components/SiteNav.tsx",
+    "frontend/src/components/Typography.tsx",
+    "frontend/src/components/home/UpcomingEventsSection.tsx",
+    "frontend/src/index.css",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/tailwind.config.js",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

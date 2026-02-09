@@ -27,11 +27,11 @@ export default function ConnectPage() {
       </PageSection>
 
       <PageSection background="muted">
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6">
           {/* Service Times */}
-          <div className="bg-white p-8 rounded-lg">
-            <Clock className="text-[oklch(var(--flame-gold))] mb-4" size={40} />
-            <h3 className="text-2xl font-bold text-[oklch(var(--royal-blue))] mb-4">Service Times</h3>
+          <div className="card-surface p-8">
+            <Clock className="text-accent mb-4" size={40} />
+            <h3 className="icon-card-title">Service Times</h3>
             <div className="space-y-3 text-foreground">
               <p className="font-semibold">Regular Worship Services:</p>
               <p className="text-muted-foreground italic">Service times will be posted here. Please check back soon or contact us for current schedule.</p>
@@ -47,9 +47,9 @@ export default function ConnectPage() {
           </div>
 
           {/* Location */}
-          <div className="bg-white p-8 rounded-lg">
-            <MapPin className="text-[oklch(var(--flame-gold))] mb-4" size={40} />
-            <h3 className="text-2xl font-bold text-[oklch(var(--royal-blue))] mb-4">Location</h3>
+          <div className="card-surface p-8">
+            <MapPin className="text-accent mb-4" size={40} />
+            <h3 className="icon-card-title">Location</h3>
             <div className="space-y-3 text-foreground">
               <p className="font-semibold">Elohim's International Revival Center</p>
               <p>13704 NW 150th Place<br />Alachua, Florida 32616</p>
@@ -64,14 +64,14 @@ export default function ConnectPage() {
 
       {/* Watch Live Section */}
       <PageSection id="watch-live">
-        <div className="bg-gradient-to-br from-[oklch(var(--royal-blue))] to-[oklch(var(--anointed-purple))] text-white p-12 rounded-lg text-center">
+        <div className="bg-gradient-to-br from-primary to-secondary text-white p-12 rounded-lg text-center shadow-md">
           <Video className="mx-auto mb-6" size={64} />
-          <SectionTitle className="text-white mb-4">Watch Live & Sermons</SectionTitle>
-          <BodyText className="text-white/90 mb-6">
+          <SectionTitle className="text-white">Watch Live & Sermons</SectionTitle>
+          <BodyText className="text-white/95">
             Join us online for live worship services and access our sermon archive. Whether you're joining from home or
             catching up on a message you missed, we're glad you're here.
           </BodyText>
-          <p className="text-white/80 italic">
+          <p className="text-white/85 italic">
             Live stream link and sermon archive will be available here soon. Stay tuned for updates!
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function ConnectPage() {
       {/* Social Media */}
       <PageSection background="muted">
         <div className="text-center">
-          <Share2 className="text-[oklch(var(--flame-gold))] mx-auto mb-6" size={48} />
+          <Share2 className="text-accent mx-auto mb-6" size={48} />
           <SectionTitle>Stay Connected on Social Media</SectionTitle>
           <BodyText>
             Follow us on social media to stay updated on events, announcements, and inspirational content.

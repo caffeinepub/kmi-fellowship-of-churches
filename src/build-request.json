@@ -1,62 +1,126 @@
 {
   "kind": "build_request",
-  "title": "Display uploaded ministry seals on the website",
+  "title": "Restyle site with vibrant Black Apostolic & Holiness aesthetic (mixed-denomination friendly)",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-9",
-      "text": "Add a new \"Ministry Seals\" section to the Our Ministries page that visibly displays the uploaded ministry seal images in a responsive grid (clickable to view larger).",
+      "id": "REQ-1",
+      "text": "Update the global design theme to add more color, energy, and “flare” while reflecting a Black Apostolic & Holiness church aesthetic that still feels welcoming to a mixed-denomination audience; apply the theme consistently across all pages (nav, hero, sections, cards, typography, buttons, links, and special blocks).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-1"
+          "msg-6"
         ],
         "quotes": [
-          "Where's our SEALs at for the web page? I don't see them on the web page. Can you update it?"
+          "Add some color and flare to the website make it look more like a black apostolic and holiness church with a mixed denomination"
         ]
       },
       "acceptanceCriteria": [
-        "Navigating to /ministries shows a clearly labeled \"Ministry Seals\" section.",
-        "The section displays the uploaded seal artwork image(s) (at minimum the combined-seals image \"ChatGPT Image Feb 5, 2026 at 11_34_19 PM.png\" and its duplicates if retained) as actual images (not broken links).",
-        "The seal images render in a responsive layout (1 column on mobile, 2+ columns on larger screens) and do not overflow the page.",
-        "Each seal image has meaningful alt text and can be clicked to view a larger version (new tab or lightbox-style overlay)."
+        "All public pages share a consistent visual language (palette, section surfaces, headings, buttons, cards).",
+        "The look clearly shifts toward a richer, more celebratory church aesthetic (deeper dark surfaces + warm metallic accents + vibrant highlights) without changing page content or navigation structure.",
+        "No user-facing text is changed as part of the restyle (styling-only update)."
       ]
     },
     {
-      "id": "REQ-10",
-      "text": "Ensure all uploaded seal-related image assets are included in the frontend as static files and referenced using stable public paths so they load reliably in production builds.",
+      "id": "REQ-2",
+      "text": "Revise Tailwind theme tokens and component utility classes in frontend/src/index.css to support the new look (e.g., deeper near-black/nav surfaces, warm gold accents, richer secondary highlights, improved section surface contrast), and ensure accessible contrast for text, links, and buttons.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-1"
+          "msg-6"
         ],
         "quotes": [
-          "All right, these are the ministry seals."
+          "Add some color and flare to the website make it look more like a black apostolic and holiness church with a mixed denomination"
         ]
       },
       "acceptanceCriteria": [
-        "The following uploaded files are present in the frontend static assets and can be loaded directly by URL in the deployed site build: F0B90583-110F-4D38-A623-55660CA4DF70.png, The Gathering at 6 launch service.png, ChatGPT Image Feb 5, 2026 at 11_34_19 PM.png, church.png, save the date with us.png, save the date with us-1.png, The Gathering at 6 launch service-1.png, F0B90583-110F-4D38-A623-55660CA4DF70-1.png, church-1.png, ChatGPT Image Feb 5, 2026 at 11_34_19 PM-1.png, save the date with us-2.png, church-2.png, The Gathering at 6 launch service-2.png, F0B90583-110F-4D38-A623-55660CA4DF70-2.png, ChatGPT Image Feb 5, 2026 at 11_34_19 PM-2.png.",
-        "No image included in the \"Ministry Seals\" section 404s or renders as a broken image in the browser.",
-        "Image file names with spaces (e.g., \"The Gathering at 6 launch service.png\") are handled so they load correctly (either by renaming to URL-safe names and updating references, or by correct URL encoding)."
+        "CSS variables under :root and .dark are updated to a cohesive palette that reads as near-black + gold + warm/vibrant accents (not a blue/purple-led look).",
+        "Buttons (.btn-primary/.btn-secondary), links (.link-default), and navigation link states (.nav-link/.nav-link-active) remain readable with clear hover/focus states.",
+        "Scripture and highlight blocks (.scripture-block, .event-highlight) look more “special” (e.g., stronger border treatment/gradient/texture accent) while staying readable.",
+        "No changes are made to any immutable frontend paths listed in SYSTEM_CONTEXT."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Restyle the header and footer to match the updated theme: enhance background treatment (e.g., subtle gradient or elevated dark surface), improve active link styling, and add tasteful accents that convey a celebratory church feel while keeping all routes and labels unchanged.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Add some color and flare to the website make it look more like a black apostolic and holiness church with a mixed denomination"
+        ]
+      },
+      "acceptanceCriteria": [
+        "SiteNav retains the same links/labels and behavior, but visually matches the new theme (background, borders, hover/active states).",
+        "SiteFooter matches the header style and theme palette and remains readable.",
+        "Desktop and mobile navigation remain functional and visually coherent after restyling."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Enhance the Home page hero presentation to align with the new aesthetic (richer overlay, improved contrast, more dramatic/celebratory feel) while keeping existing hero layout and CTAs intact.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Add some color and flare to the website make it look more like a black apostolic and holiness church with a mixed denomination"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The hero overlay (currently a primary gradient overlay) is updated to better fit the new palette and improve legibility of the hero title/subtitle.",
+        "Primary CTAs remain visible and readable on the hero across common screen sizes.",
+        "No route changes; Home page structure remains the same."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add subtle visual “flair” elements that can be reused across the site (e.g., ornamental dividers, subtle texture overlays, or accent patterns) and apply them sparingly to key areas such as the hero, section headers, and special blocks without cluttering the UI.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Add some color and flare to the website make it look more like a black apostolic and holiness church with a mixed denomination"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least one reusable decorative element is introduced and used consistently (not randomly) across multiple pages/sections.",
+        "Decorative elements do not reduce text readability or interfere with interactions (links/buttons still easy to use).",
+        "All decorative assets are served as static frontend assets (not via the backend)."
       ]
     }
   ],
   "constraints": [
-    "Frontend paths listed as immutable must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui (compose only).",
-    "Do not add or require any backend changes for displaying images; images must be served as static frontend assets."
+    "Frontend files under SYSTEM_CONTEXT.frontend.immutablePaths must not be edited; compose around them.",
+    "Keep backend unchanged (no new Motoko methods or state changes) since the request is purely visual.",
+    "Do not change routes, navigation labels, or page content; only update styling and static visual assets.",
+    "Do not introduce a blue/purple-dominant theme (unless explicitly requested later)."
   ],
   "nonGoals": [
-    "Do not redesign the overall site navigation, routing, or existing page content beyond adding the requested seal visibility.",
-    "Do not implement a CMS or admin uploader as part of this request."
+    "Adding new pages, ministries, events, or new content sections.",
+    "Changing appointment scheduling behavior or any backend validation/storage.",
+    "Integrating third-party design systems or external font/CDN dependencies."
   ],
   "imageRequirements": {
-    "required": [],
-    "edits": []
+    "required": [
+      "Subtle ornamental gold divider flourish on transparent background (holiness-divider.dim_1600x200.png)",
+      "Seamless dark textured background (subtle fabric/stone-like) (holiness-texture-tile.dim_1024x1024.png)"
+    ],
+    "edits": [
+      "Warm up and increase contrast/saturation for a more celebratory worship feel (kmi-hero.dim_1920x800.png > kmi-hero-holiness.dim_1920x800.png)"
+    ]
   },
   "userProfileUpdate": {
     "goalsToAdd": [],
     "goalsToRemove": [],
-    "preferencesToAdd": [],
+    "preferencesToAdd": [
+      "Prefer a vibrant, celebratory Black Apostolic & Holiness church aesthetic with mixed-denomination friendliness for site visual design."
+    ],
     "preferencesToRemove": [],
     "miscToAdd": [],
     "miscToRemove": [],

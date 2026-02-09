@@ -23,26 +23,30 @@ export default function SiteNav() {
   const isActive = (path: string) => currentPath === path;
 
   return (
-    <header className="bg-[oklch(var(--royal-blue))] text-white sticky top-0 z-50 shadow-lg">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-4">
+    <header className="bg-nav-bg text-nav-text sticky top-0 z-50 shadow-2xl border-b-4 border-accent/50 backdrop-blur-sm">
+      <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-transparent to-secondary/5 pointer-events-none" />
+      <div className="container mx-auto px-4 relative">
+        <div className="flex items-center justify-between py-5">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
-            <img src="/assets/generated/kmi-mark.dim_512x512.png" alt="KMI Fellowship" className="h-12 w-12" />
+          <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-all duration-300 hover:scale-105">
+            <div className="relative">
+              <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full" />
+              <img src="/assets/generated/kmi-site-logo.dim_512x512.png" alt="KMI Fellowship of Churches" className="h-14 w-14 object-contain relative z-10" />
+            </div>
             <div className="hidden md:block">
-              <div className="font-bold text-lg leading-tight">KMI Fellowship</div>
-              <div className="text-xs text-[oklch(var(--warm-neutral))] opacity-90">of Churches</div>
+              <div className="font-bold text-xl leading-tight text-nav-accent">KMI Fellowship</div>
+              <div className="text-xs text-nav-text/90 font-semibold tracking-wide">of Churches</div>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-[oklch(var(--flame-gold))] ${
-                  isActive(link.path) ? 'text-[oklch(var(--flame-gold))] border-b-2 border-[oklch(var(--flame-gold))]' : ''
+                className={`text-sm nav-link ${
+                  isActive(link.path) ? 'nav-link-active' : ''
                 }`}
               >
                 {link.label}
@@ -58,29 +62,31 @@ export default function SiteNav() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
+            className="lg:hidden p-3 hover:bg-accent/20 rounded-xl transition-all duration-300 border border-accent/30 hover:border-accent"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={24} className="text-accent" /> : <Menu size={24} className="text-accent" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="lg:hidden pb-4 space-y-2">
+          <nav className="lg:hidden pb-6 space-y-2 border-t border-accent/20 pt-4">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block py-2 px-4 rounded-lg transition-colors hover:bg-white/10 ${
-                  isActive(link.path) ? 'bg-white/20 text-[oklch(var(--flame-gold))]' : ''
+                className={`block py-3 px-5 rounded-xl transition-all duration-300 font-semibold ${
+                  isActive(link.path) 
+                    ? 'bg-accent/20 text-nav-accent border-l-4 border-accent' 
+                    : 'hover:bg-accent/10 hover:text-nav-accent border-l-4 border-transparent'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="pt-4 space-y-2">
+            <div className="pt-4 space-y-3">
               <PrimaryCtas variant="mobile" />
             </div>
           </nav>
@@ -89,3 +95,4 @@ export default function SiteNav() {
     </header>
   );
 }
+

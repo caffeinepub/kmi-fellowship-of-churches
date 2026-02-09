@@ -1,133 +1,146 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Ministry Seals section with reliable static seal images",
+  "title": "Vibrant Black Apostolic & Holiness visual restyle (styling-only, no content/route changes)",
   "requirements": [
     {
-      "id": "REQ-9",
-      "summary": "Add a clearly labeled Ministry Seals section to /ministries that shows seal images in a responsive grid and supports viewing larger on click.",
+      "id": "REQ-1",
+      "summary": "Apply a consistent vibrant Black Apostolic & Holiness-inspired theme across all public pages (palette, surfaces, typography, buttons/links, cards, special blocks) without changing content or navigation.",
       "acceptanceCriteria": [
-        "Navigating to /ministries shows a clearly labeled \"Ministry Seals\" section.",
-        "The section displays the uploaded seal artwork image(s) (at minimum the combined-seals image \"ChatGPT Image Feb 5, 2026 at 11_34_19 PM.png\" and its duplicates if retained) as actual images (not broken links).",
-        "The seal images render in a responsive layout (1 column on mobile, 2+ columns on larger screens) and do not overflow the page.",
-        "Each seal image has meaningful alt text and can be clicked to view a larger version (new tab or lightbox-style overlay)."
+        "All public pages share a consistent visual language (palette, section surfaces, headings, buttons, cards).",
+        "The look clearly shifts toward a richer, more celebratory church aesthetic (deeper dark surfaces + warm metallic accents + vibrant highlights) without changing page content or navigation structure.",
+        "No user-facing text is changed as part of the restyle (styling-only update)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/content/ministrySeals.ts",
-          "operation": "create",
-          "description": "Define the Ministry Seals image catalog (public src paths + meaningful alt text) used by the Our Ministries page."
-        },
-        {
-          "path": "frontend/src/utils/publicAssetUrl.ts",
-          "operation": "create",
-          "description": "Add a small utility to build stable public URLs for static assets, ensuring filenames with spaces are correctly URL-encoded when referenced."
-        },
-        {
-          "path": "frontend/src/components/MinistrySealsSection.tsx",
-          "operation": "create",
-          "description": "Create a reusable Ministry Seals section component that renders a responsive image grid and makes each image clickable to view larger (e.g., open in a new tab). If using any shadcn-ui components for the larger-view interaction, verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/MinistriesPage.tsx",
+          "path": "frontend/src/index.css",
           "operation": "modify",
-          "description": "Insert the new \"Ministry Seals\" section into the Our Ministries page using existing layout primitives (PageSection/SectionTitle) and render the seals from the shared catalog in a responsive grid without overflowing the page."
+          "description": "Update global theme tokens and component classes to establish a near-black + warm gold + rich warm accent system, and to ensure consistent styling across nav/sections/cards/typography/buttons/links/special blocks (styling-only)."
+        },
+        {
+          "path": "frontend/src/components/Typography.tsx",
+          "operation": "modify",
+          "description": "Adjust typography component classNames to better match the new celebratory palette (e.g., headings using gold/accent treatments where appropriate) while keeping text content unchanged."
+        },
+        {
+          "path": "frontend/src/components/PageSection.tsx",
+          "operation": "modify",
+          "description": "Ensure section background variants map cleanly to the updated surface tokens (no content/layout changes; styling-only consistency improvements)."
+        },
+        {
+          "path": "frontend/src/components/home/UpcomingEventsSection.tsx",
+          "operation": "modify",
+          "description": "Align card/title/metadata styling with updated theme classes/tokens (no text or structure changes; styling-only)."
         }
       ]
     },
     {
-      "id": "REQ-10",
-      "summary": "Include all uploaded seal-related images as static frontend assets and reference them via stable public paths that work in production, including handling spaces in filenames.",
+      "id": "REQ-2",
+      "summary": "Revise Tailwind theme tokens and custom utility classes in frontend/src/index.css for deeper dark surfaces, warm gold accents, vibrant secondary highlights, special block treatments, and accessible contrast.",
       "acceptanceCriteria": [
-        "The following uploaded files are present in the frontend static assets and can be loaded directly by URL in the deployed site build: F0B90583-110F-4D38-A623-55660CA4DF70.png, The Gathering at 6 launch service.png, ChatGPT Image Feb 5, 2026 at 11_34_19 PM.png, church.png, save the date with us.png, save the date with us-1.png, The Gathering at 6 launch service-1.png, F0B90583-110F-4D38-A623-55660CA4DF70-1.png, church-1.png, ChatGPT Image Feb 5, 2026 at 11_34_19 PM-1.png, save the date with us-2.png, church-2.png, The Gathering at 6 launch service-2.png, F0B90583-110F-4D38-A623-55660CA4DF70-2.png, ChatGPT Image Feb 5, 2026 at 11_34_19 PM-2.png.",
-        "No image included in the \"Ministry Seals\" section 404s or renders as a broken image in the browser.",
-        "Image file names with spaces (e.g., \"The Gathering at 6 launch service.png\") are handled so they load correctly (either by renaming to URL-safe names and updating references, or by correct URL encoding)."
+        "CSS variables under :root and .dark are updated to a cohesive palette that reads as near-black + gold + warm/vibrant accents (not a blue/purple-led look).",
+        "Buttons (.btn-primary/.btn-secondary), links (.link-default), and navigation link states (.nav-link/.nav-link-active) remain readable with clear hover/focus states.",
+        "Scripture and highlight blocks (.scripture-block, .event-highlight) look more “special” (e.g., stronger border treatment/gradient/texture accent) while staying readable.",
+        "No changes are made to any immutable frontend paths listed in SYSTEM_CONTEXT."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/ministry-seals/F0B90583-110F-4D38-A623-55660CA4DF70.png",
-          "operation": "create",
-          "description": "Add uploaded seal-related static asset for reliable production loading."
-        },
-        {
-          "path": "frontend/public/assets/ministry-seals/The Gathering at 6 launch service.png",
-          "operation": "create",
-          "description": "Add uploaded seal-related static asset (contains spaces in filename) for reliable production loading."
-        },
-        {
-          "path": "frontend/public/assets/ministry-seals/ChatGPT Image Feb 5, 2026 at 11_34_19 PM.png",
-          "operation": "create",
-          "description": "Add uploaded seal-related static asset (combined seals) for reliable production loading."
-        },
-        {
-          "path": "frontend/public/assets/ministry-seals/church.png",
-          "operation": "create",
-          "description": "Add uploaded seal-related static asset for reliable production loading."
-        },
-        {
-          "path": "frontend/public/assets/ministry-seals/save the date with us.png",
-          "operation": "create",
-          "description": "Add uploaded seal-related static asset (contains spaces in filename) for reliable production loading."
-        },
-        {
-          "path": "frontend/public/assets/ministry-seals/save the date with us-1.png",
-          "operation": "create",
-          "description": "Add uploaded seal-related static asset (contains spaces in filename) for reliable production loading."
-        },
-        {
-          "path": "frontend/public/assets/ministry-seals/The Gathering at 6 launch service-1.png",
-          "operation": "create",
-          "description": "Add uploaded seal-related static asset (contains spaces in filename) for reliable production loading."
-        },
-        {
-          "path": "frontend/public/assets/ministry-seals/F0B90583-110F-4D38-A623-55660CA4DF70-1.png",
-          "operation": "create",
-          "description": "Add uploaded seal-related static asset for reliable production loading."
-        },
-        {
-          "path": "frontend/public/assets/ministry-seals/church-1.png",
-          "operation": "create",
-          "description": "Add uploaded seal-related static asset for reliable production loading."
-        },
-        {
-          "path": "frontend/public/assets/ministry-seals/ChatGPT Image Feb 5, 2026 at 11_34_19 PM-1.png",
-          "operation": "create",
-          "description": "Add uploaded seal-related static asset (contains spaces in filename) for reliable production loading."
-        },
-        {
-          "path": "frontend/public/assets/ministry-seals/save the date with us-2.png",
-          "operation": "create",
-          "description": "Add uploaded seal-related static asset (contains spaces in filename) for reliable production loading."
-        },
-        {
-          "path": "frontend/public/assets/ministry-seals/church-2.png",
-          "operation": "create",
-          "description": "Add uploaded seal-related static asset for reliable production loading."
-        },
-        {
-          "path": "frontend/public/assets/ministry-seals/The Gathering at 6 launch service-2.png",
-          "operation": "create",
-          "description": "Add uploaded seal-related static asset (contains spaces in filename) for reliable production loading."
-        },
-        {
-          "path": "frontend/public/assets/ministry-seals/F0B90583-110F-4D38-A623-55660CA4DF70-2.png",
-          "operation": "create",
-          "description": "Add uploaded seal-related static asset for reliable production loading."
-        },
-        {
-          "path": "frontend/public/assets/ministry-seals/ChatGPT Image Feb 5, 2026 at 11_34_19 PM-2.png",
-          "operation": "create",
-          "description": "Add uploaded seal-related static asset (contains spaces in filename) for reliable production loading."
-        },
-        {
-          "path": "frontend/src/content/ministrySeals.ts",
+          "path": "frontend/src/index.css",
           "operation": "modify",
-          "description": "Ensure the seal catalog references the final stable public paths under frontend/public/assets/ministry-seals/ for all listed uploaded images (including those with spaces)."
+          "description": "Retune :root/.dark CSS variables to a near-black base with warm metallic (gold) accents and non-blue/purple-led highlights; update .btn-primary/.btn-secondary/.link-default/.nav-link/.nav-link-active for accessible hover/focus states; enhance .scripture-block and .event-highlight with richer border/gradient/texture accents while maintaining readability. (Do not change any user-facing text.)"
         },
         {
-          "path": "frontend/src/components/MinistrySealsSection.tsx",
+          "path": "frontend/tailwind.config.js",
           "operation": "modify",
-          "description": "Ensure image src generation uses URL encoding (via the shared public-asset URL helper) so files with spaces load correctly in production builds."
+          "description": "If needed to support the updated CSS variable token set, confirm/extend Tailwind mappings for any new/adjusted semantic tokens used by the restyle (no new dependencies, no route/content changes)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Restyle header and footer to match the new theme with elevated dark surfaces/gradients, improved active link styling, and tasteful celebratory accents; keep all routes/labels unchanged.",
+      "acceptanceCriteria": [
+        "SiteNav retains the same links/labels and behavior, but visually matches the new theme (background, borders, hover/active states).",
+        "SiteFooter matches the header style and theme palette and remains readable.",
+        "Desktop and mobile navigation remain functional and visually coherent after restyling."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/SiteNav.tsx",
+          "operation": "modify",
+          "description": "Update header surface treatment (e.g., subtle gradient, refined border/shadow), improve active/hover/focus styles using existing nav-link classes/tokens, and add tasteful accent details while keeping links/labels/behavior unchanged."
+        },
+        {
+          "path": "frontend/src/components/SiteFooter.tsx",
+          "operation": "modify",
+          "description": "Restyle footer to visually pair with the updated header (dark elevated surface, warm accent headings/links, readable contrast) without changing any labels, routes, or content."
+        },
+        {
+          "path": "frontend/src/components/PrimaryCtas.tsx",
+          "operation": "modify",
+          "description": "Ensure header/hero/mobile CTA buttons remain readable and consistent with updated .btn-* styles (no link/label changes)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Enhance the Home page hero presentation with a richer, more dramatic overlay and improved contrast while keeping existing hero layout and CTAs intact.",
+      "acceptanceCriteria": [
+        "The hero overlay (currently a primary gradient overlay) is updated to better fit the new palette and improve legibility of the hero title/subtitle.",
+        "Primary CTAs remain visible and readable on the hero across common screen sizes.",
+        "No route changes; Home page structure remains the same."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Swap hero background image to the warmed/celebratory version and update the overlay treatment (e.g., near-black + warm-gold tint gradient) to improve legibility while keeping the hero layout and CTAs unchanged. Use frontend/public/assets/generated/kmi-hero-holiness.dim_1920x800.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/kmi-hero-holiness.dim_1920x800.png",
+          "operation": "create",
+          "description": "Add the edited hero image asset (generated from kmi-hero.dim_1920x800.png) as a static frontend asset."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Introduce reusable subtle “flair” elements (ornamental divider/texture overlay) as static assets and apply them sparingly to hero, section headers, and special blocks without clutter.",
+      "acceptanceCriteria": [
+        "At least one reusable decorative element is introduced and used consistently (not randomly) across multiple pages/sections.",
+        "Decorative elements do not reduce text readability or interfere with interactions (links/buttons still easy to use).",
+        "All decorative assets are served as static frontend assets (not via the backend)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/holiness-divider.dim_1600x200.png",
+          "operation": "create",
+          "description": "Add the generated ornamental gold divider flourish (transparent background) as a static frontend asset."
+        },
+        {
+          "path": "frontend/public/assets/generated/holiness-texture-tile.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated seamless dark texture tile as a static frontend asset."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Create reusable decorative utility/component classes that reference frontend/public/assets/generated/holiness-divider.dim_1600x200.png and frontend/public/assets/generated/holiness-texture-tile.dim_1024x1024.png (e.g., subtle texture overlay class and ornamental divider treatment) and apply them to special blocks and key surfaces without impacting readability or interactions."
+        },
+        {
+          "path": "frontend/src/components/Typography.tsx",
+          "operation": "modify",
+          "description": "Apply a consistent, sparing decorative treatment to section headings (e.g., an ornamental divider rendered via a class/pseudo-element) so it appears across multiple pages without changing any heading text."
+        },
+        {
+          "path": "frontend/src/components/BrandSections.tsx",
+          "operation": "modify",
+          "description": "Enhance ScriptureBlock and EventHighlight to use the new decorative/texture classes so these blocks feel more “special” while keeping their content and structure unchanged."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Apply the decorative/texture flair classes sparingly within the existing hero and/or key section areas (no layout/CTA changes), ensuring the ornamentation is consistent with other pages/sections."
         }
       ]
     }

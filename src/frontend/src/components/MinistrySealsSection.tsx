@@ -5,12 +5,12 @@ import { publicAssetUrl } from '../utils/publicAssetUrl';
 export default function MinistrySealsSection() {
   return (
     <div className="space-y-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="card-grid">
         {ministrySeals.map((seal, index) => (
           <Dialog key={index}>
             <DialogTrigger asChild>
               <button
-                className="group relative overflow-hidden rounded-lg border-2 border-[oklch(var(--flame-gold))] bg-white p-4 transition-all hover:shadow-xl hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[oklch(var(--flame-gold))] focus:ring-offset-2"
+                className="group card-surface p-4 transition-all hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
                 aria-label={`View larger version of ${seal.alt}`}
               >
                 <div className="aspect-square w-full overflow-hidden rounded-md">
@@ -22,7 +22,7 @@ export default function MinistrySealsSection() {
                   />
                 </div>
                 <div className="mt-3 text-center">
-                  <p className="text-sm font-medium text-[oklch(var(--royal-blue))] group-hover:text-[oklch(var(--flame-gold))]">
+                  <p className="text-sm font-medium text-primary group-hover:text-accent transition-colors">
                     Click to view larger
                   </p>
                 </div>

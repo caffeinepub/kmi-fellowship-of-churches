@@ -14,41 +14,41 @@ export default function MinistriesPage() {
       </PageSection>
 
       <PageSection background="muted">
-        <div className="space-y-8">
-          <div className="bg-white p-8 rounded-lg">
-            <h3 className="text-2xl font-bold text-[oklch(var(--royal-blue))] mb-4">Worship & Word Ministry</h3>
+        <div className="space-y-6">
+          <div className="card-surface p-8">
+            <h3 className="icon-card-title">Worship & Word Ministry</h3>
             <BodyText className="mb-0">
               Spirit-led services centered on biblical truth. Experience passionate worship and relevant teaching that
               transforms lives and draws us closer to God.
             </BodyText>
           </div>
 
-          <div className="bg-white p-8 rounded-lg">
-            <h3 className="text-2xl font-bold text-[oklch(var(--royal-blue))] mb-4">Men's & Women's Ministries</h3>
+          <div className="card-surface p-8">
+            <h3 className="icon-card-title">Men's & Women's Ministries</h3>
             <BodyText className="mb-0">
               Building strong faith, character, and community. Our gender-specific ministries provide a safe space for
               growth, accountability, and fellowship.
             </BodyText>
           </div>
 
-          <div className="bg-white p-8 rounded-lg">
-            <h3 className="text-2xl font-bold text-[oklch(var(--royal-blue))] mb-4">Discipleship & Leadership Training</h3>
+          <div className="card-surface p-8">
+            <h3 className="icon-card-title">Discipleship & Leadership Training</h3>
             <BodyText className="mb-0">
               Equipping believers to walk boldly in their calling. Through intentional training and mentorship, we
               develop leaders who serve with integrity and purpose.
             </BodyText>
           </div>
 
-          <div className="bg-white p-8 rounded-lg">
-            <h3 className="text-2xl font-bold text-[oklch(var(--royal-blue))] mb-4">Youth & Family Support</h3>
+          <div className="card-surface p-8">
+            <h3 className="icon-card-title">Youth & Family Support</h3>
             <BodyText className="mb-0">
               Encouraging the next generation in faith and purpose. We invest in young people and families, providing
               support, guidance, and opportunities for spiritual growth.
             </BodyText>
           </div>
 
-          <div className="bg-white p-8 rounded-lg">
-            <h3 className="text-2xl font-bold text-[oklch(var(--royal-blue))] mb-4">Community Outreach & Charity</h3>
+          <div className="card-surface p-8">
+            <h3 className="icon-card-title">Community Outreach & Charity</h3>
             <BodyText className="mb-0">
               Feeding the hungry, supporting families, and serving those in need. We believe in meeting both spiritual
               and practical needs with compassion and generosity.
