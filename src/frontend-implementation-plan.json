@@ -1,0 +1,317 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "KMI Fellowship of Churches multi-page website (branding, Gathering at 6, leadership, appointment request)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build the multi-page church website IA with clear navigation and required pages/sections, including a Connect page with explicit placeholders.",
+      "acceptanceCriteria": [
+        "Top-level navigation links exist for each required page/section and work without page reload issues.",
+        "All user-facing text is in English and reflects the provided copy (with minimal formatting adjustments allowed for readability).",
+        "The Connect page/section includes explicit placeholders for service times, location/contact, live stream/sermons, and social links (even if values are not yet provided)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app shell with a layout and client-side routing for: Home/Welcome, Who We Are, Our Mission, What to Expect When You Visit, Our Ministries, Community Outreach, Connect With Us, Leadership & Governance, The Gathering at 6, and Schedule a Meeting."
+        },
+        {
+          "path": "frontend/src/components/SiteLayout.tsx",
+          "operation": "create",
+          "description": "Create a shared layout with header/nav and footer used by all pages; ensure navigation uses client-side links (no full page reload) and includes prominent links to key sections."
+        },
+        {
+          "path": "frontend/src/components/SiteNav.tsx",
+          "operation": "create",
+          "description": "Implement top-level navigation entries for each required page/section and provide active-state styling aligned with the brand palette."
+        },
+        {
+          "path": "frontend/src/components/SiteFooter.tsx",
+          "operation": "create",
+          "description": "Implement the footer with the required palette styling and space for contact/connect information consistent across pages."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create the Home/Welcome page using the provided copy; include key sections and link-forward CTAs that route to Visit, Connect (Watch Live placeholder), and Schedule a Meeting."
+        },
+        {
+          "path": "frontend/src/pages/WhoWeArePage.tsx",
+          "operation": "create",
+          "description": "Create the Who We Are page/section content in English, referencing “KMI Fellowship of Churches” and “Elohim’s International Revival Center” where provided in the copy."
+        },
+        {
+          "path": "frontend/src/pages/OurMissionPage.tsx",
+          "operation": "create",
+          "description": "Create the Our Mission page/section content in English, reflecting provided copy and consistent section styling."
+        },
+        {
+          "path": "frontend/src/pages/VisitPage.tsx",
+          "operation": "create",
+          "description": "Create the What to Expect When You Visit page/section; ensure it is linkable for the “Plan Your Visit” CTA."
+        },
+        {
+          "path": "frontend/src/pages/MinistriesPage.tsx",
+          "operation": "create",
+          "description": "Create the Our Ministries page/section with readable section structure and placeholder content where details are not provided."
+        },
+        {
+          "path": "frontend/src/pages/OutreachPage.tsx",
+          "operation": "create",
+          "description": "Create the Community Outreach page/section with readable section structure and placeholder content where details are not provided."
+        },
+        {
+          "path": "frontend/src/pages/ConnectPage.tsx",
+          "operation": "create",
+          "description": "Create the Connect With Us page/section including explicit placeholders for service times, location/contact details, live stream/sermons link area, and social media links."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add a dedicated “The Gathering at 6” page/section with the provided schedule, location, and What to Expect list.",
+      "acceptanceCriteria": [
+        "A navigation entry leads to a “The Gathering at 6” page/section.",
+        "The page/section displays the exact schedule, time, and location details as provided.",
+        "The “What to Expect” items are rendered as a readable list."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/GatheringAt6Page.tsx",
+          "operation": "create",
+          "description": "Create the “The Gathering at 6” page with title/subtitle, launch date (February 22), recurrence (every second & fourth Sunday), time (6:00 PM), location (13704 NW 150th Place, Alachua, Florida 32616, right next to Alachua Elementary School), and the provided What to Expect bullets as a list."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the “The Gathering at 6” route into the router and ensure the SiteNav includes a navigation link to it."
+        },
+        {
+          "path": "frontend/src/components/SiteNav.tsx",
+          "operation": "modify",
+          "description": "Add/verify a navigation entry for “The Gathering at 6” and ensure active styling aligns with the brand palette."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create a Leadership & Governance page/section with all specified subsections, lists, and the verbatim Accountability & Legal Compliance statement.",
+      "acceptanceCriteria": [
+        "The Leadership & Governance page/section includes each specified subsection and list items.",
+        "The Accountability & Legal Compliance statement is displayed verbatim (allowing only minor punctuation/formatting changes)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LeadershipGovernancePage.tsx",
+          "operation": "create",
+          "description": "Create the Leadership & Governance page including: Presiding Prelate bio header/summary for Dr. Virgil Leo Postell Jr.; Apostolic & Ministerial Governance Structure with Joint Colleges list (Apostles, Prophets, Evangelists, Pastors, Bishops vacant); Schools of Ministry list (Teachers, Ministers); Councils & Assemblies list (Deacons & Deaconesses, Board of Ruling Elders, Joint College of Armor Bearers); Episcopal Positions note (bishops vacant until appointed); Tribunal & Tribunal of Wisdom description; and the Accountability & Legal Compliance statement displayed verbatim."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the Leadership & Governance route into the router and ensure the SiteNav includes a navigation link to it."
+        },
+        {
+          "path": "frontend/src/components/SiteNav.tsx",
+          "operation": "modify",
+          "description": "Add/verify the Leadership & Governance navigation link and ensure active styling aligns with the brand palette."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement the “Schedule a Meeting with Leadership” appointment request form UI with validation, success state, and React Query submission to the backend capability.",
+      "acceptanceCriteria": [
+        "Client-side validation prevents submission when required fields are missing and when consent is not checked.",
+        "The dropdown options match the provided list exactly.",
+        "On successful submit, the UI shows a confirmation message and clears or disables the form appropriately.",
+        "Submitted requests are persisted in the Motoko canister and can be retrieved via a backend query method (for basic verification/testing)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ScheduleMeetingPage.tsx",
+          "operation": "create",
+          "description": "Create the appointment request page containing the full field structure (required/optional), dropdown options exactly as provided in the BuildRequest copy, client-side validation, and a clear post-submit success state (confirmation + reset/disable)."
+        },
+        {
+          "path": "frontend/src/hooks/useSubmitAppointmentRequest.ts",
+          "operation": "create",
+          "description": "Create a React Query mutation hook that calls the backend capability to submit an appointment request; handle loading and error states for user feedback."
+        },
+        {
+          "path": "frontend/src/hooks/useGetAllAppointmentRequests.ts",
+          "operation": "create",
+          "description": "Create a React Query query hook to retrieve submitted requests via the backend capability for basic verification/testing (read-only rendering)."
+        },
+        {
+          "path": "frontend/src/components/AppointmentRequestsTestPanel.tsx",
+          "operation": "create",
+          "description": "Add an optional, minimal read-only UI panel (intended for basic verification/testing) that lists retrieved requests; keep it non-admin-dashboard in scope (no editing/deleting)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the “Schedule a Meeting” route into the router and ensure navigation/CTAs can reach it."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add a “Chief Apostle & Prophet Availability” section on the Leadership page with a 3-state legend and calendar-like availability UI plus the confirmation note.",
+      "acceptanceCriteria": [
+        "The availability legend includes all three statuses (Available, Out of Office, Limited Availability).",
+        "The note about submission not guaranteeing confirmation is displayed in the section.",
+        "A calendar-like UI element is present (it may be static/minimal for initial build, but must visually communicate availability)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/LeadershipAvailability.tsx",
+          "operation": "create",
+          "description": "Implement a calendar-like availability UI element (static/minimal) with a legend showing the three statuses (Available, Out of Office, Limited Availability) and include the note that submitting a request does not guarantee an appointment until confirmation is received."
+        },
+        {
+          "path": "frontend/src/pages/LeadershipGovernancePage.tsx",
+          "operation": "modify",
+          "description": "Place the “Chief Apostle & Prophet Availability” section on the Leadership page (next to the bio/photo area) by composing the LeadershipAvailability component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Apply the provided brand palette across global UI elements (header/nav, footer, links, buttons) and special sections (scripture/quote blocks, event highlights).",
+      "acceptanceCriteria": [
+        "Primary buttons use #D4AF37 with text #0E2A47 and hover #E25822.",
+        "Secondary buttons use #5B2C83 with white text and hover #D4AF37.",
+        "Header/navigation uses #0E2A47 with white text and active link accent #D4AF37.",
+        "Footer uses #0E2A47 with text #F5F1E8 and accent/icons #D4AF37.",
+        "Links default to #0E2A47 and hover to #E25822 (visited may use #5B2C83).",
+        "At least one special scripture/quote block style uses #5B2C83 with white text, and an event highlight style uses gold/orange accents."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create global styles (Tailwind + shadcn token overrides) to map the brand palette into CSS variables and base elements (body background #F5F1E8, foreground, link styles, and consistent section spacing)."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with named brand colors (Flame Gold #D4AF37, Royal Deep Blue #0E2A47, Revival Fire Orange #E25822, Anointed Purple #5B2C83, Warm Light Neutral #F5F1E8) and ensure utilities exist for buttons/sections/accents."
+        },
+        {
+          "path": "frontend/src/components/SiteLayout.tsx",
+          "operation": "modify",
+          "description": "Apply palette styling to header/nav (deep blue background, white text, gold active accents) and footer (deep blue background, warm neutral text, gold accents) using Tailwind classes."
+        },
+        {
+          "path": "frontend/src/components/BrandSections.tsx",
+          "operation": "create",
+          "description": "Create reusable section wrappers/styles (e.g., scripture/quote block using purple + white text; event highlight using gold/orange accents) to ensure consistent special-section styling across pages."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Use the BrandSections helpers to include at least one scripture/quote block and an event highlight style on the Home page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Establish a cohesive, modern church-appropriate visual theme with consistent typography, spacing, and section styling using warm neutrals and the provided palette.",
+      "acceptanceCriteria": [
+        "Typography, spacing, and component styling appear consistent across pages (headings, body text, cards/sections, and CTAs).",
+        "The overall design uses warm neutrals (#F5F1E8) and avoids introducing unrelated dominant colors that conflict with the provided palette."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Typography.tsx",
+          "operation": "create",
+          "description": "Create lightweight typography wrappers (page title, section title, body text) to standardize type scale and spacing across pages."
+        },
+        {
+          "path": "frontend/src/components/PageSection.tsx",
+          "operation": "create",
+          "description": "Create a consistent section component (padding, max-width, background variants) to enforce a shared spacing system and cohesive layout across pages."
+        },
+        {
+          "path": "frontend/src/pages/WhoWeArePage.tsx",
+          "operation": "modify",
+          "description": "Refactor page structure to use the shared Typography and PageSection components for consistent layout/spacing."
+        },
+        {
+          "path": "frontend/src/pages/OurMissionPage.tsx",
+          "operation": "modify",
+          "description": "Refactor page structure to use the shared Typography and PageSection components for consistent layout/spacing."
+        },
+        {
+          "path": "frontend/src/pages/VisitPage.tsx",
+          "operation": "modify",
+          "description": "Refactor page structure to use the shared Typography and PageSection components for consistent layout/spacing."
+        },
+        {
+          "path": "frontend/src/pages/MinistriesPage.tsx",
+          "operation": "modify",
+          "description": "Refactor page structure to use the shared Typography and PageSection components for consistent layout/spacing."
+        },
+        {
+          "path": "frontend/src/pages/OutreachPage.tsx",
+          "operation": "modify",
+          "description": "Refactor page structure to use the shared Typography and PageSection components for consistent layout/spacing."
+        },
+        {
+          "path": "frontend/src/pages/ConnectPage.tsx",
+          "operation": "modify",
+          "description": "Refactor page structure to use the shared Typography and PageSection components for consistent layout/spacing."
+        },
+        {
+          "path": "frontend/src/pages/GatheringAt6Page.tsx",
+          "operation": "modify",
+          "description": "Refactor page structure to use the shared Typography and PageSection components for consistent layout/spacing."
+        },
+        {
+          "path": "frontend/src/pages/LeadershipGovernancePage.tsx",
+          "operation": "modify",
+          "description": "Refactor page structure to use the shared Typography and PageSection components for consistent layout/spacing."
+        },
+        {
+          "path": "frontend/src/pages/ScheduleMeetingPage.tsx",
+          "operation": "modify",
+          "description": "Refactor page structure to use the shared Typography and PageSection components for consistent layout/spacing and consistent form presentation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add primary CTAs that route to Plan Your Visit, Watch Live (placeholder), and Schedule a Meeting.",
+      "acceptanceCriteria": [
+        "“Plan Your Visit” routes the user to the visit/expectations content.",
+        "“Schedule a Meeting” routes the user to the appointment request form.",
+        "“Watch Live” is present as a CTA and links to a clearly labeled placeholder destination that the user can later edit."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PrimaryCtas.tsx",
+          "operation": "create",
+          "description": "Create reusable primary CTA buttons/links (Plan Your Visit, Watch Live, Schedule a Meeting) styled with the brand palette and designed for placement in header and Home page."
+        },
+        {
+          "path": "frontend/src/components/SiteNav.tsx",
+          "operation": "modify",
+          "description": "Add a header CTA area that includes “Plan Your Visit” and “Schedule a Meeting” using the PrimaryCtas component."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Add prominent Home page CTAs using PrimaryCtas and ensure they route to the Visit content, the Connect page placeholder area for Watch Live, and the appointment request form."
+        },
+        {
+          "path": "frontend/src/pages/ConnectPage.tsx",
+          "operation": "modify",
+          "description": "Implement a clearly labeled placeholder destination area for “Watch Live” (e.g., a section that indicates where a live stream/sermons link will go) and ensure the CTA scrolls/routes to it."
+        }
+      ]
+    }
+  ]
+}

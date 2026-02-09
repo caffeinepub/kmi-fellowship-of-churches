@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.625rem;
+        
+        /* Brand Colors - KMI Fellowship */
+        --flame-gold: 0.72 0.15 85;
+        --royal-blue: 0.25 0.08 240;
+        --revival-orange: 0.62 0.18 35;
+        --anointed-purple: 0.42 0.12 295;
+        --earth-brown: 0.45 0.06 50;
+        --warm-neutral: 0.95 0.02 75;
+        
+        /* Semantic tokens */
+        --background: 0.95 0.02 75;
+        --foreground: 0.15 0 0;
+        --card: 1 0 0;
+        --card-foreground: 0.15 0 0;
+        --popover: 1 0 0;
+        --popover-foreground: 0.15 0 0;
+        --primary: 0.72 0.15 85;
+        --primary-foreground: 0.25 0.08 240;
+        --secondary: 0.42 0.12 295;
+        --secondary-foreground: 1 0 0;
+        --muted: 0.90 0.02 75;
+        --muted-foreground: 0.45 0 0;
+        --accent: 0.62 0.18 35;
+        --accent-foreground: 1 0 0;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        --border: 0.85 0.02 75;
+        --input: 0.85 0.02 75;
+        --ring: 0.72 0.15 85;
+        --chart-1: 0.72 0.15 85;
+        --chart-2: 0.25 0.08 240;
+        --chart-3: 0.62 0.18 35;
+        --chart-4: 0.42 0.12 295;
+        --chart-5: 0.45 0.06 50;
+    }
+
+    .dark {
+        --background: 0.20 0.05 240;
+        --foreground: 0.95 0.02 75;
+        --card: 0.25 0.08 240;
+        --card-foreground: 0.95 0.02 75;
+        --popover: 0.25 0.08 240;
+        --popover-foreground: 0.95 0.02 75;
+        --primary: 0.72 0.15 85;
+        --primary-foreground: 0.25 0.08 240;
+        --secondary: 0.42 0.12 295;
+        --secondary-foreground: 1 0 0;
+        --muted: 0.30 0.06 240;
+        --muted-foreground: 0.70 0.02 75;
+        --accent: 0.62 0.18 35;
+        --accent-foreground: 1 0 0;
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.95 0.02 75;
+        --border: 0.30 0.06 240;
+        --input: 0.30 0.06 240;
+        --ring: 0.72 0.15 85;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        font-weight: 600;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply bg-[oklch(var(--flame-gold))] text-[oklch(var(--royal-blue))] hover:bg-[oklch(var(--revival-orange))] transition-colors font-semibold px-6 py-3 rounded-lg;
+    }
+    
+    .btn-secondary {
+        @apply bg-[oklch(var(--anointed-purple))] text-white hover:bg-[oklch(var(--flame-gold))] hover:text-[oklch(var(--royal-blue))] transition-colors font-semibold px-6 py-3 rounded-lg;
+    }
+    
+    .link-default {
+        @apply text-[oklch(var(--royal-blue))] hover:text-[oklch(var(--revival-orange))] transition-colors;
+    }
+    
+    .scripture-block {
+        @apply bg-[oklch(var(--anointed-purple))] text-white p-6 rounded-lg italic;
+    }
+    
+    .event-highlight {
+        @apply border-2 border-[oklch(var(--flame-gold))] bg-gradient-to-br from-[oklch(var(--warm-neutral))] to-white p-6 rounded-lg;
+    }
+}

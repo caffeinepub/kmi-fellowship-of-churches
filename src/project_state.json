@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a website for KMI Fellowship of Churches (and Elohim’s International Revival Center) using the provided brand color palette, including core church information, ministries, outreach, leadership/governance details, an appointment scheduling request form (Wix Forms structure), and a dedicated “The Gathering at 6” service page/section.",
+  "architectural_notes": [
+    "Target platform implied: Wix (use Wix Forms for appointment scheduling).",
+    "Use provided brand palette/usage guide: Gold #D4AF37, Deep Blue #0E2A47, Orange #E25822, Purple #5B2C83, Brown #6B4F2D, Neutral #F5F1E8; text #1C1C1C/#5F5F5F; white on dark.",
+    "Appointment scheduling implemented as a request workflow (submit → review/confirm), not instant booking."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Abstract church hero banner with warm light neutral background, deep midnight blue overlays, subtle gold accents and flame-inspired shapes (kmi-hero.dim_1920x800.png)\n- Minimal emblem-style logo mark featuring a cross/flame motif in gold and deep blue on transparent background (kmi-mark.dim_512x512.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-multi-page-church-website-for-kmi-fellowship-of-churches-including-references-to-elohim-s-international-revival-center-where-provided-with-clear-navigation-and-sections-pages-for-home-welcome-who-we-are-our-mission-what-to-expect-when-you-visit-our-ministries-community-outreach-connect-with-us-including-placeholders-for-service-times-location-contact-details-live-stream-sermons-link-and-social-media-links",
+      "title": "Create a multi-page church website for “KMI Fellowship of Churches” (including references to “Elohim’s International Revival Center” where provided) with clear navigation and sections/pages for: Home/Welcome, Who We Are, Our Mission, What to Expect When You Visit, Our Ministries, Community Outreach, Connect With Us (including placeholders for service times, location/contact details, live stream/sermons link, and social media links).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-dedicated-page-section-for-the-gathering-at-6-that-includes-title-subtitle-launch-date-february-22-recurrence-every-second-fourth-sunday-time-6-00-pm-location-13704-nw-150th-place-alachua-florida-32616-right-next-to-alachua-elementary-school-and-the-provided-what-to-expect-bullet-list",
+      "title": "Add a dedicated page/section for “The Gathering at 6” that includes: title/subtitle, launch date (February 22), recurrence (every second & fourth Sunday), time (6:00 PM), location (13704 NW 150th Place, Alachua, Florida 32616, right next to Alachua Elementary School), and the provided “What to Expect” bullet list.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-leadership-governance-page-section-containing-presiding-prelate-bio-header-and-summary-for-dr-virgil-leo-postell-jr-apostolic-ministerial-governance-structure-including-joint-colleges-list-apostles-prophets-evangelists-pastors-bishops-vacant-schools-of-ministry-list-teachers-ministers-councils-assemblies-list-deacons-deaconesses-board-of-ruling-elders-joint-college-of-armor-bearers-episcopal-positions-note-bishops-vacant-until-appointed-tribunal-tribunal-of-wisdom-description-and-the-accountability-legal-compliance-statement",
+      "title": "Add a Leadership & Governance page/section containing: Presiding Prelate bio header and summary for Dr. Virgil Leo Postell Jr.; Apostolic & Ministerial Governance Structure including Joint Colleges list (Apostles, Prophets, Evangelists, Pastors, Bishops vacant), Schools of Ministry list (Teachers, Ministers), Councils & Assemblies list (Deacons & Deaconesses, Board of Ruling Elders, Joint College of Armor Bearers), Episcopal Positions note (bishops vacant until appointed), Tribunal & Tribunal of Wisdom description, and the Accountability & Legal Compliance statement.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-schedule-a-meeting-with-leadership-appointment-request-form-matching-the-provided-field-structure-full-name-required-email-address-required-phone-number-required-church-organization-optional-request-type-dropdown-with-the-exact-options-provided-leader-you-are-requesting-to-meet-with-text-box-preferred-date-date-picker-preferred-time-time-picker-urgency-level-routine-time-sensitive-emergency-details-of-request-large-text-box-and-consent-acknowledgement-checkbox-with-the-provided-label-include-form-validation-and-a-clear-submission-success-state",
+      "title": "Implement a “Schedule a Meeting with Leadership” appointment request form matching the provided field structure: Full Name (required), Email Address (required), Phone Number (required), Church/Organization (optional), Request Type dropdown with the exact options provided, “Leader You Are Requesting to Meet With” text box, Preferred Date (date picker), Preferred Time (time picker), Urgency Level (Routine/Time-Sensitive/Emergency), Details of Request (large text box), and Consent/Acknowledgement checkbox with the provided label; include form validation and a clear submission success state.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-chief-apostle-prophet-availability-section-on-the-leadership-page-that-shows-an-availability-calendar-status-legend-with-the-three-states-available-out-of-office-limited-availability-and-includes-the-note-that-submitting-a-request-does-not-guarantee-an-appointment-until-confirmation-is-received",
+      "title": "Add a “Chief Apostle & Prophet Availability” section on the Leadership page that shows an availability calendar/status legend with the three states (Available, Out of Office, Limited Availability) and includes the note that submitting a request does not guarantee an appointment until confirmation is received.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-the-provided-brand-color-palette-and-ui-usage-guide-consistently-across-the-site-header-nav-background-and-text-footer-styling-link-colors-and-hover-states-primary-secondary-buttons-and-hover-states-and-special-sections-including-scripture-quote-blocks-and-event-highlights",
+      "title": "Apply the provided brand color palette and UI usage guide consistently across the site: header/nav background and text, footer styling, link colors and hover states, primary/secondary buttons and hover states, and special sections including scripture/quote blocks and event highlights.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-establish-a-cohesive-visual-theme-layout-typography-pairing-spacing-system-and-section-styling-appropriate-for-a-modern-church-website-using-warm-neutrals-and-the-provided-royal-gold-deep-blue-orange-purple-palette-ensure-consistency-across-all-pages",
+      "title": "Establish a cohesive visual theme (layout, typography pairing, spacing system, and section styling) appropriate for a modern church website, using warm neutrals and the provided royal gold/deep blue/orange/purple palette; ensure consistency across all pages.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-primary-calls-to-action-in-appropriate-locations-e-g-header-and-home-page-that-route-to-key-pages-plan-your-visit-routes-to-the-what-to-expect-when-you-visit-content-watch-live-placeholder-link-area-on-connect-page-section-and-schedule-a-meeting-routes-to-the-appointment-request-form",
+      "title": "Add primary calls-to-action in appropriate locations (e.g., header and Home page) that route to key pages: “Plan Your Visit” (routes to the “What to Expect When You Visit” content), “Watch Live” (placeholder link area on Connect page/section), and “Schedule a Meeting” (routes to the appointment request form).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create core website content/pages for KMI Fellowship of Churches (Home/Welcome, Who We Are, Mission, What to Expect, Ministries, Community Outreach, Connect/Contact).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add a dedicated page/section for “The Gathering at 6” evening worship service including schedule, location, and launch date details.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Add Leadership & Governance page/section describing presiding prelate, governance structure (joint colleges, schools, councils/assemblies), tribunal details, and compliance statement.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Implement “Schedule a Meeting with Leadership” appointment request form using the specified Wix Forms required fields, dropdown options, date/time pickers, urgency, details, and consent checkbox.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add a leadership availability calendar/status legend section for Chief Apostle & Prophet (Available/Out of Office/Limited) with note that submission doesn’t guarantee confirmation.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Apply the provided brand color palette and UI usage guide across the site (buttons, links, header/nav, footer, special sections).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "KMI Fellowship of Churches",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
