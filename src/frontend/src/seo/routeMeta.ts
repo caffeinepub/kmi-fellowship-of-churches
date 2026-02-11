@@ -5,50 +5,54 @@ export interface RouteMetadata {
 
 export const routeMetadata: Record<string, RouteMetadata> = {
   '/': {
-    title: 'KMI Fellowship of Churches - Home',
-    description: 'Welcome to KMI Fellowship of Churches. A community dedicated to prayer, worship, teaching, discipleship, and outreach. Join us for The Gathering at 6 and experience transformative worship.',
+    title: "Elohim's International Revival Center - Home",
+    description: "Welcome to Elohim's International Revival Center & KMI Fellowship of Churches. A prophetic and apostolic community raising up believers for this generation.",
   },
-  '/who-we-are': {
-    title: 'Who We Are - KMI Fellowship of Churches',
-    description: 'Learn about KMI Fellowship of Churches, our beliefs, and our commitment to prayer, worship, teaching, discipleship, and outreach. Discover our purpose and values.',
-  },
-  '/our-mission': {
-    title: 'Our Mission - KMI Fellowship of Churches',
-    description: 'Our mission is to Connect believers to Christ, Empower them through discipleship, and Extend God\'s love to the world. Learn about our commitment to transforming lives.',
-  },
-  '/visit': {
-    title: 'Plan Your Visit - KMI Fellowship of Churches',
-    description: 'Planning to visit KMI Fellowship? Learn what to expect: a welcoming atmosphere, powerful worship, biblical teaching, and opportunities for spiritual growth.',
-  },
-  '/ministries': {
-    title: 'Ministries - KMI Fellowship of Churches',
-    description: 'Explore our ministries including Youth Ministry, Women\'s Ministry, Men\'s Ministry, Children\'s Ministry, Worship Ministry, and more. Find your place to serve and grow.',
-  },
-  '/outreach': {
-    title: 'Community Outreach - KMI Fellowship of Churches',
-    description: 'Discover our community outreach programs including food assistance, compassionate care, and community events. Join us in extending God\'s love to our neighbors.',
-  },
-  '/connect': {
-    title: 'Connect With Us - KMI Fellowship of Churches',
-    description: 'Connect with KMI Fellowship through our services, watch live online, find our location, and follow us on social media. Stay connected with our community.',
-  },
-  '/gathering-at-6': {
-    title: 'The Gathering at 6 - KMI Fellowship of Churches',
-    description: 'Join us for The Gathering at 6, our evening worship service featuring powerful praise, biblical teaching, and community fellowship. Every Sunday at 6:00 PM.',
+  '/about': {
+    title: 'About the Ministry - EIRC',
+    description: "Learn about Elohim's International Revival Center and KMI Fellowship of Churches, our vision, mission, and core values.",
   },
   '/leadership': {
-    title: 'Leadership & Governance - KMI Fellowship of Churches',
-    description: 'Meet our leadership team including our Presiding Prelate and learn about our governance structure, Joint Colleges, Schools, Councils, and Tribunal.',
+    title: 'Leadership - EIRC',
+    description: 'Meet our leadership team led by Apostle & Prophet Dr. Virgil Postell, Jr. and learn about our apostolic order and governance.',
+  },
+  '/worship-services': {
+    title: 'Worship & Services - EIRC',
+    description: 'Join us for Sabbath Service online, The Gathering in person, and School of the Prophets. Service times and dial-in information.',
+  },
+  '/learning-study': {
+    title: 'Learning & Study - EIRC',
+    description: 'Access Bible translations, study tools, and resources for deeper understanding of Scripture.',
+  },
+  '/prophetic-training': {
+    title: 'Prophetic Training - EIRC',
+    description: 'School of the Prophets - Equipping believers to hear, receive, and deliver the prophetic word of the Lord.',
+  },
+  '/kmi-fellowship': {
+    title: 'KMI Fellowship - EIRC',
+    description: 'Kingdom Ministries International Fellowship - A fellowship of churches and ministries united in advancing the Kingdom of God.',
+  },
+  '/kmi-governance': {
+    title: 'KMI Governance - EIRC',
+    description: 'Learn about our apostolic structure, Joint Colleges, and governance framework.',
+  },
+  '/get-involved': {
+    title: 'Get Involved - EIRC',
+    description: 'Discover your place in the Body of Christ. Explore ministry opportunities and find where you can serve.',
+  },
+  '/prayer-request': {
+    title: 'Prayer Request - EIRC',
+    description: 'Submit a prayer request to our intercessory team. We believe in the power of prayer.',
   },
   '/schedule-meeting': {
-    title: 'Schedule a Meeting - KMI Fellowship of Churches',
-    description: 'Request an appointment with our leadership for consultation, prayer counseling, speaking engagements, or other ministry needs. We\'re here to serve you.',
+    title: 'Schedule a Meeting - EIRC',
+    description: 'Request an appointment with our leadership for consultation, prayer counseling, or other ministry needs.',
   },
 };
 
 export function getRouteMetadata(pathname: string): RouteMetadata {
   return routeMetadata[pathname] || {
-    title: 'KMI Fellowship of Churches',
-    description: 'KMI Fellowship of Churches - A community dedicated to prayer, worship, teaching, discipleship, and outreach.',
+    title: "Elohim's International Revival Center",
+    description: "A prophetic and apostolic community raising up believers for this generation.",
   };
 }

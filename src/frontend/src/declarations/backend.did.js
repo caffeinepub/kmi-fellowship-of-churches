@@ -13,10 +13,27 @@ export const UserRole = IDL.Variant({
   'user' : IDL.Null,
   'guest' : IDL.Null,
 });
+export const RequestStatus = IDL.Variant({
+  'resolved' : IDL.Null,
+  'open' : IDL.Null,
+  'inProgress' : IDL.Null,
+});
 export const UrgencyLevel = IDL.Variant({
   'emergency' : IDL.Null,
   'routine' : IDL.Null,
   'timeSensitive' : IDL.Null,
+});
+export const PrayerRequest = IDL.Record({
+  'id' : IDL.Nat,
+  'isEmergency' : IDL.Bool,
+  'status' : RequestStatus,
+  'urgencyLevel' : UrgencyLevel,
+  'prayerRequest' : IDL.Text,
+  'fullName' : IDL.Text,
+  'submittedAt' : IDL.Int,
+  'submittedBy' : IDL.Opt(IDL.Principal),
+  'emailAddress' : IDL.Text,
+  'phoneNumber' : IDL.Opt(IDL.Text),
 });
 export const RequestType = IDL.Variant({
   'other' : IDL.Null,
@@ -49,9 +66,16 @@ export const UserProfile = IDL.Record({
 export const idlService = IDL.Service({
   '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
   'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
+  'getAllPrayerRequests' : IDL.Func([], [IDL.Vec(PrayerRequest)], ['query']),
   'getAllRequests' : IDL.Func([], [IDL.Vec(AppointmentRequest)], ['query']),
   'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
   'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
+  'getEmergencyPrayerRequests' : IDL.Func(
+      [],
+      [IDL.Vec(PrayerRequest)],
+      ['query'],
+    ),
+  'getPrayerRequest' : IDL.Func([IDL.Nat], [IDL.Opt(PrayerRequest)], ['query']),
   'getUserProfile' : IDL.Func(
       [IDL.Principal],
       [IDL.Opt(UserProfile)],
@@ -60,6 +84,17 @@ export const idlService = IDL.Service({
   'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
   'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
   'submitAppointmentRequest' : IDL.Func([AppointmentRequest], [], []),
+  'submitEmergencyPrayer' : IDL.Func(
+      [IDL.Text, IDL.Text, IDL.Text],
+      [IDL.Nat],
+      [],
+    ),
+  'submitPrayerRequest' : IDL.Func(
+      [IDL.Text, IDL.Text, IDL.Opt(IDL.Text), IDL.Text, UrgencyLevel],
+      [IDL.Nat],
+      [],
+    ),
+  'updatePrayerRequestStatus' : IDL.Func([IDL.Nat, RequestStatus], [], []),
 });
 
 export const idlInitArgs = [];
@@ -70,10 +105,27 @@ export const idlFactory = ({ IDL }) => {
     'user' : IDL.Null,
     'guest' : IDL.Null,
   });
+  const RequestStatus = IDL.Variant({
+    'resolved' : IDL.Null,
+    'open' : IDL.Null,
+    'inProgress' : IDL.Null,
+  });
   const UrgencyLevel = IDL.Variant({
     'emergency' : IDL.Null,
     'routine' : IDL.Null,
     'timeSensitive' : IDL.Null,
+  });
+  const PrayerRequest = IDL.Record({
+    'id' : IDL.Nat,
+    'isEmergency' : IDL.Bool,
+    'status' : RequestStatus,
+    'urgencyLevel' : UrgencyLevel,
+    'prayerRequest' : IDL.Text,
+    'fullName' : IDL.Text,
+    'submittedAt' : IDL.Int,
+    'submittedBy' : IDL.Opt(IDL.Principal),
+    'emailAddress' : IDL.Text,
+    'phoneNumber' : IDL.Opt(IDL.Text),
   });
   const RequestType = IDL.Variant({
     'other' : IDL.Null,
@@ -106,9 +158,20 @@ export const idlFactory = ({ IDL }) => {
   return IDL.Service({
     '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
     'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
+    'getAllPrayerRequests' : IDL.Func([], [IDL.Vec(PrayerRequest)], ['query']),
     'getAllRequests' : IDL.Func([], [IDL.Vec(AppointmentRequest)], ['query']),
     'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
     'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
+    'getEmergencyPrayerRequests' : IDL.Func(
+        [],
+        [IDL.Vec(PrayerRequest)],
+        ['query'],
+      ),
+    'getPrayerRequest' : IDL.Func(
+        [IDL.Nat],
+        [IDL.Opt(PrayerRequest)],
+        ['query'],
+      ),
     'getUserProfile' : IDL.Func(
         [IDL.Principal],
         [IDL.Opt(UserProfile)],
@@ -117,6 +180,17 @@ export const idlFactory = ({ IDL }) => {
     'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
     'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
     'submitAppointmentRequest' : IDL.Func([AppointmentRequest], [], []),
+    'submitEmergencyPrayer' : IDL.Func(
+        [IDL.Text, IDL.Text, IDL.Text],
+        [IDL.Nat],
+        [],
+      ),
+    'submitPrayerRequest' : IDL.Func(
+        [IDL.Text, IDL.Text, IDL.Opt(IDL.Text), IDL.Text, UrgencyLevel],
+        [IDL.Nat],
+        [],
+      ),
+    'updatePrayerRequestStatus' : IDL.Func([IDL.Nat, RequestStatus], [], []),
   });
 };
 

@@ -1,109 +1,135 @@
 import PageSection from '../components/PageSection';
 import { PageTitle, SectionTitle, BodyText } from '../components/Typography';
-import { MapPin, Clock, Video, Share2 } from 'lucide-react';
-import { Link } from '@tanstack/react-router';
-import { useEffect } from 'react';
+import { MapPin, Phone, Mail, Clock, Video } from 'lucide-react';
 
 export default function ConnectPage() {
-  // Handle hash navigation on mount
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const element = document.querySelector(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }, []);
-
   return (
     <>
-      <PageSection>
-        <PageTitle>Connect With Us</PageTitle>
-        <BodyText>
-          Stay connected with KMI Fellowship through worship services, events and special gatherings, online messages
-          and live streams, and prayer and community support.
-        </BodyText>
-      </PageSection>
-
+      {/* Hero Section */}
       <PageSection background="muted">
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Service Times */}
-          <div className="card-surface p-8">
-            <Clock className="text-accent mb-4" size={40} />
-            <h3 className="icon-card-title">Service Times</h3>
-            <div className="space-y-3 text-foreground">
-              <p className="font-semibold">Regular Worship Services:</p>
-              <p className="text-muted-foreground italic">Service times will be posted here. Please check back soon or contact us for current schedule.</p>
-              
-              <p className="font-semibold mt-4">The Gathering at 6:</p>
-              <p>Every 2nd & 4th Sunday at 6:00 PM</p>
-              <p className="text-sm text-muted-foreground">Beginning February 22</p>
-              
-              <Link to="/gathering-at-6" className="link-default font-semibold inline-block mt-2">
-                Learn More About The Gathering →
-              </Link>
-            </div>
-          </div>
-
-          {/* Location */}
-          <div className="card-surface p-8">
-            <MapPin className="text-accent mb-4" size={40} />
-            <h3 className="icon-card-title">Location</h3>
-            <div className="space-y-3 text-foreground">
-              <p className="font-semibold">Elohim's International Revival Center</p>
-              <p>13704 NW 150th Place<br />Alachua, Florida 32616</p>
-              <p className="text-sm text-muted-foreground">(Right next to Alachua Elementary School)</p>
-              
-              <p className="font-semibold mt-4">Contact Information:</p>
-              <p className="text-muted-foreground italic">Phone and email will be posted here. Please check back soon.</p>
-            </div>
-          </div>
+        <div className="text-center max-w-4xl mx-auto">
+          <PageTitle>Connect With Us</PageTitle>
+          <BodyText className="text-foreground/70">
+            We'd love to hear from you! Whether you have questions, need prayer, or want to get involved, we're here to
+            connect.
+          </BodyText>
         </div>
       </PageSection>
 
       {/* Watch Live Section */}
-      <PageSection id="watch-live">
-        <div className="bg-gradient-to-br from-primary to-secondary text-white p-12 rounded-lg text-center shadow-md">
-          <Video className="mx-auto mb-6" size={64} />
-          <SectionTitle className="text-white">Watch Live & Sermons</SectionTitle>
-          <BodyText className="text-white/95">
-            Join us online for live worship services and access our sermon archive. Whether you're joining from home or
-            catching up on a message you missed, we're glad you're here.
-          </BodyText>
-          <p className="text-white/85 italic">
-            Live stream link and sermon archive will be available here soon. Stay tuned for updates!
-          </p>
+      <PageSection className="textured-surface">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-gradient-to-br from-primary to-secondary text-white p-12 rounded-2xl shadow-2xl text-center">
+            <Video size={64} className="mx-auto mb-6" />
+            <h2 className="text-4xl font-display font-black mb-4">Watch Our Services Live</h2>
+            <p className="text-xl mb-8 opacity-95">
+              Join us online every Sunday at 10:00 AM for live worship and teaching.
+            </p>
+            <a
+              href="#"
+              className="inline-block px-10 py-4 bg-white text-primary hover:bg-accent hover:text-accent-foreground rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              Watch Live Stream
+            </a>
+          </div>
         </div>
       </PageSection>
 
-      {/* Social Media */}
+      {/* Contact Information */}
       <PageSection background="muted">
-        <div className="text-center">
-          <Share2 className="text-accent mx-auto mb-6" size={48} />
-          <SectionTitle>Stay Connected on Social Media</SectionTitle>
-          <BodyText>
-            Follow us on social media to stay updated on events, announcements, and inspirational content.
-          </BodyText>
-          <p className="text-muted-foreground italic mt-4">
-            Social media links will be posted here. Please check back soon.
-          </p>
+        <SectionTitle className="text-center">
+          <span className="section-title-decorated">Get In Touch</span>
+        </SectionTitle>
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {/* Location */}
+          <div className="card-surface p-8">
+            <div className="flex items-start gap-4">
+              <MapPin size={32} className="text-accent shrink-0 mt-1" />
+              <div>
+                <h3 className="text-2xl font-bold text-primary mb-3 font-display">Our Location</h3>
+                <p className="text-foreground leading-relaxed text-lg">
+                  123 Faith Avenue
+                  <br />
+                  Your City, ST 12345
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Phone */}
+          <div className="card-surface p-8">
+            <div className="flex items-start gap-4">
+              <Phone size={32} className="text-accent shrink-0 mt-1" />
+              <div>
+                <h3 className="text-2xl font-bold text-primary mb-3 font-display">Call Us</h3>
+                <p className="text-foreground leading-relaxed text-lg">
+                  Office: (555) 123-4567
+                  <br />
+                  Prayer Line: (555) 123-4568
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Email */}
+          <div className="card-surface p-8">
+            <div className="flex items-start gap-4">
+              <Mail size={32} className="text-accent shrink-0 mt-1" />
+              <div>
+                <h3 className="text-2xl font-bold text-primary mb-3 font-display">Email Us</h3>
+                <p className="text-foreground leading-relaxed text-lg">
+                  info@kmifellowship.org
+                  <br />
+                  prayer@kmifellowship.org
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Office Hours */}
+          <div className="card-surface p-8">
+            <div className="flex items-start gap-4">
+              <Clock size={32} className="text-accent shrink-0 mt-1" />
+              <div>
+                <h3 className="text-2xl font-bold text-primary mb-3 font-display">Office Hours</h3>
+                <p className="text-foreground leading-relaxed text-lg">
+                  Monday - Friday: 9:00 AM - 5:00 PM
+                  <br />
+                  Saturday: By Appointment
+                  <br />
+                  Sunday: Service Times
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </PageSection>
 
-      {/* Schedule Meeting CTA */}
-      <PageSection>
-        <div className="text-center max-w-2xl mx-auto">
-          <SectionTitle>Need to Speak with Leadership?</SectionTitle>
-          <BodyText>
-            Our pastoral team is available for counseling, prayer, and ministry support. Schedule a meeting with our
-            leadership team.
-          </BodyText>
-          <Link to="/schedule-meeting" className="btn-primary inline-block">
-            Schedule a Meeting
-          </Link>
+      {/* Service Times */}
+      <PageSection className="textured-surface">
+        <div className="max-w-4xl mx-auto text-center">
+          <SectionTitle>
+            <span className="section-title-decorated">Service Times</span>
+          </SectionTitle>
+          <div className="grid md:grid-cols-2 gap-8 mt-10">
+            <div className="card-surface p-8">
+              <h3 className="text-3xl font-bold text-primary mb-4 font-display">Sunday Morning Worship</h3>
+              <p className="text-2xl text-accent font-bold mb-2">10:00 AM</p>
+              <p className="text-foreground leading-relaxed text-lg">
+                Join us for powerful worship, inspiring teaching, and authentic community.
+              </p>
+            </div>
+            <div className="card-surface p-8">
+              <h3 className="text-3xl font-bold text-primary mb-4 font-display">The Gathering at 6</h3>
+              <p className="text-2xl text-accent font-bold mb-2">6:00 PM</p>
+              <p className="text-foreground leading-relaxed text-lg">
+                An evening service focused on prayer, worship, and spiritual growth.
+              </p>
+            </div>
+          </div>
         </div>
       </PageSection>
     </>
   );
 }
+

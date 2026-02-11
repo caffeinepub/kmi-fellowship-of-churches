@@ -1,214 +1,155 @@
 import PageSection from '../components/PageSection';
-import { PageTitle, SectionTitle, SubsectionTitle, BodyText } from '../components/Typography';
-import LeadershipAvailability from '../components/LeadershipAvailability';
-import { Shield, Users, BookOpen, Scale } from 'lucide-react';
+import { PageTitle, SectionTitle, BodyText } from '../components/Typography';
+import { Users, Shield, BookOpen, Heart } from 'lucide-react';
 
 export default function LeadershipGovernancePage() {
   return (
     <>
-      <PageSection>
-        <PageTitle>Leadership & Governance</PageTitle>
-        <p className="text-xl text-[oklch(var(--anointed-purple))] font-semibold mb-6">
-          KMI Fellowship of Churches • Elohim's International Revival Center
-        </p>
-      </PageSection>
-
-      {/* Presiding Prelate */}
+      {/* Hero Section */}
       <PageSection background="muted">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="md:col-span-1">
-            <div className="bg-white p-6 rounded-lg text-center">
-              <div className="w-32 h-32 mx-auto mb-4 bg-[oklch(var(--royal-blue))] rounded-full flex items-center justify-center">
-                <Shield className="text-[oklch(var(--flame-gold))]" size={64} />
-              </div>
-              <h3 className="text-xl font-bold text-[oklch(var(--royal-blue))] mb-2">Presiding Prelate</h3>
-              <p className="text-sm text-muted-foreground">Chief Apostle & Prophet</p>
-            </div>
-          </div>
-          <div className="md:col-span-2">
-            <SubsectionTitle>Dr. Virgil Leo Postell Jr.</SubsectionTitle>
-            <p className="text-lg font-semibold text-[oklch(var(--anointed-purple))] mb-4">
-              Chief Apostle and Prophet
-            </p>
-            <BodyText>
-              Dr. Virgil Leo Postell Jr. serves as the Chief Apostle and Prophet of KMI Fellowship of Churches and the
-              Senior Pastor of Elohim's International Revival Center. As Presiding Prelate, he provides spiritual
-              oversight, apostolic governance, and prophetic leadership for the fellowship and its affiliated
-              ministries.
-            </BodyText>
-            <BodyText>
-              Dr. Postell is called to equip leaders, establish order within the Body of Christ, and advance the work of
-              the Kingdom through sound doctrine, spiritual accountability, and Spirit-led ministry. His leadership
-              emphasizes biblical integrity, prayer, discipleship, and the proper functioning of ministry offices as
-              outlined in Scripture.
-            </BodyText>
-            <BodyText className="mb-0">
-              As Chief Apostle and Prophet, Dr. Postell holds the highest spiritual authority within KMI Fellowship of
-              Churches, providing direction, covering, and final oversight for all Joint Colleges, councils, and
-              assemblies operating under the fellowship.
-            </BodyText>
-          </div>
+        <div className="text-center max-w-4xl mx-auto">
+          <PageTitle>Leadership & Governance</PageTitle>
+          <BodyText className="text-foreground/70">
+            KMI Fellowship is led by a team of dedicated servants committed to biblical leadership, accountability, and
+            spiritual oversight.
+          </BodyText>
         </div>
       </PageSection>
 
-      {/* Availability Calendar */}
-      <PageSection>
-        <LeadershipAvailability />
+      {/* Presiding Prelate Section */}
+      <PageSection className="textured-surface">
+        <div className="max-w-5xl mx-auto">
+          <SectionTitle className="text-center">
+            <span className="section-title-decorated">Presiding Prelate</span>
+          </SectionTitle>
+          <div className="grid md:grid-cols-2 gap-12 items-center mt-10">
+            <div className="order-2 md:order-1">
+              <h3 className="text-3xl font-bold text-primary mb-4 font-display">Chief Apostle [Name]</h3>
+              <p className="text-foreground leading-relaxed text-lg mb-4">
+                Chief Apostle [Name] serves as the Presiding Prelate of KMI Fellowship of Churches, providing spiritual
+                oversight and apostolic leadership to the fellowship.
+              </p>
+              <p className="text-foreground leading-relaxed text-lg mb-4">
+                With a heart for worship, discipleship, and community transformation, Chief Apostle [Name] leads with
+                wisdom, compassion, and a deep commitment to biblical truth.
+              </p>
+              <p className="text-foreground leading-relaxed text-lg">
+                Under his leadership, KMI Fellowship continues to grow as a vibrant community of believers dedicated to
+                worship, teaching, and service.
+              </p>
+            </div>
+            <div className="order-1 md:order-2">
+              <img
+                src="/assets/generated/chief-apostle-portrait.dim_1200x1500.jpg"
+                alt="Chief Apostle Portrait"
+                className="w-full rounded-2xl shadow-2xl border-4 border-accent/30"
+              />
+            </div>
+          </div>
+        </div>
       </PageSection>
 
       {/* Governance Structure */}
       <PageSection background="muted">
-        <SectionTitle>Apostolic & Ministerial Governance Structure</SectionTitle>
-        <BodyText>
-          Under the leadership of the Chief Apostle and Prophet, KMI Fellowship of Churches operates through a unified
-          leadership framework designed to train, govern, and support ministry leaders with clarity and accountability.
-        </BodyText>
-
-        <div className="grid md:grid-cols-2 gap-8 mt-8">
-          {/* Joint Colleges */}
-          <div className="bg-white p-8 rounded-lg">
-            <Users className="text-[oklch(var(--flame-gold))] mb-4" size={40} />
-            <SubsectionTitle>Joint Colleges</SubsectionTitle>
-            <p className="text-sm text-muted-foreground mb-4">(Operating under Apostolic Oversight)</p>
-            <ul className="space-y-2 text-foreground">
-              <li className="flex items-start gap-2">
-                <span className="text-[oklch(var(--flame-gold))] mt-1">•</span>
-                <span>Joint College of Apostles</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[oklch(var(--flame-gold))] mt-1">•</span>
-                <span>Joint College of Prophets</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[oklch(var(--flame-gold))] mt-1">•</span>
-                <span>Joint College of Evangelists</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[oklch(var(--flame-gold))] mt-1">•</span>
-                <span>Joint College of Pastors</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[oklch(var(--flame-gold))] mt-1">•</span>
-                <span>Joint College of Bishops <span className="text-sm text-muted-foreground italic">(Positions currently vacant)</span></span>
-              </li>
-            </ul>
-            <p className="text-sm text-foreground mt-4">
-              Each Joint College functions to develop, affirm, and govern individuals called to their respective offices
-              while remaining under the spiritual authority of the Chief Apostle and Prophet.
+        <SectionTitle className="text-center">
+          <span className="section-title-decorated">Governance Structure</span>
+        </SectionTitle>
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-10">
+          <div className="card-surface p-8">
+            <Users size={48} className="text-accent mb-6" />
+            <h3 className="text-2xl font-bold text-primary mb-4 font-display">Apostolic Leadership</h3>
+            <p className="text-foreground leading-relaxed text-lg">
+              The Chief Apostle provides spiritual oversight and apostolic direction for the fellowship, ensuring
+              alignment with biblical principles and the vision of the ministry.
             </p>
           </div>
 
-          {/* Schools of Ministry */}
-          <div className="bg-white p-8 rounded-lg">
-            <BookOpen className="text-[oklch(var(--flame-gold))] mb-4" size={40} />
-            <SubsectionTitle>Schools of Ministry</SubsectionTitle>
-            <ul className="space-y-2 text-foreground mt-4">
-              <li className="flex items-start gap-2">
-                <span className="text-[oklch(var(--flame-gold))] mt-1">•</span>
-                <span>School of Teachers</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[oklch(var(--flame-gold))] mt-1">•</span>
-                <span>School of Ministers</span>
-              </li>
-            </ul>
-            <p className="text-sm text-foreground mt-4">
-              These schools exist to provide biblical instruction, doctrinal grounding, and practical ministry training
-              for those preparing to serve within the fellowship and local churches.
+          <div className="card-surface p-8">
+            <Shield size={48} className="text-accent mb-6" />
+            <h3 className="text-2xl font-bold text-primary mb-4 font-display">Elder Board</h3>
+            <p className="text-foreground leading-relaxed text-lg">
+              A team of elders provides spiritual guidance, pastoral care, and accountability, working together to shepherd
+              the congregation and support the vision of the church.
             </p>
           </div>
 
-          {/* Councils & Assemblies */}
-          <div className="bg-white p-8 rounded-lg">
-            <Users className="text-[oklch(var(--flame-gold))] mb-4" size={40} />
-            <SubsectionTitle>Councils & Assemblies</SubsectionTitle>
-            <ul className="space-y-2 text-foreground mt-4">
-              <li className="flex items-start gap-2">
-                <span className="text-[oklch(var(--flame-gold))] mt-1">•</span>
-                <span>Council of Deacons & Deaconesses</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[oklch(var(--flame-gold))] mt-1">•</span>
-                <span>Board of Ruling Elders</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[oklch(var(--flame-gold))] mt-1">•</span>
-                <span>Joint College of Armor Bearers (Armor Bearers Assembly)</span>
-              </li>
-            </ul>
-            <p className="text-sm text-foreground mt-4">
-              These bodies serve in support, governance, service, and leadership assistance, helping maintain order,
-              care, and operational excellence within the fellowship.
+          <div className="card-surface p-8">
+            <BookOpen size={48} className="text-accent mb-6" />
+            <h3 className="text-2xl font-bold text-primary mb-4 font-display">Ministry Leaders</h3>
+            <p className="text-foreground leading-relaxed text-lg">
+              Dedicated ministry leaders oversee specific areas of church life, including worship, children's ministry,
+              outreach, and discipleship, ensuring excellence and effectiveness.
             </p>
           </div>
 
-          {/* Episcopal Positions */}
-          <div className="bg-white p-8 rounded-lg">
-            <Shield className="text-[oklch(var(--flame-gold))] mb-4" size={40} />
-            <SubsectionTitle>Episcopal Positions</SubsectionTitle>
-            <p className="text-foreground mt-4">
-              Bishops will be appointed to sit within the Joint College of Bishops as the fellowship grows. At this
-              time, these positions remain vacant and will be filled through prayer, discernment, and apostolic
-              appointment under the authority of the Chief Apostle and Prophet.
+          <div className="card-surface p-8">
+            <Heart size={48} className="text-accent mb-6" />
+            <h3 className="text-2xl font-bold text-primary mb-4 font-display">Deacon Team</h3>
+            <p className="text-foreground leading-relaxed text-lg">
+              Deacons serve the practical needs of the church, providing support in areas such as hospitality, facilities,
+              and community care, allowing leaders to focus on spiritual oversight.
             </p>
           </div>
         </div>
       </PageSection>
 
-      {/* Tribunal */}
-      <PageSection>
-        <div className="bg-gradient-to-br from-[oklch(var(--anointed-purple))] to-[oklch(var(--royal-blue))] text-white p-8 rounded-lg">
-          <Scale className="mb-4" size={48} />
-          <SubsectionTitle className="text-white">Tribunal & Tribunal of Wisdom</SubsectionTitle>
-          <BodyText className="text-white/90">
-            KMI Fellowship of Churches maintains a Tribunal and a Tribunal of Wisdom to address internal ministry
-            matters, including leadership concerns, doctrinal issues, and internal church affairs. These tribunals
-            operate with prayer, biblical counsel, and accountability to ensure integrity and proper governance within
-            the fellowship.
-          </BodyText>
+      {/* Tribunal Section */}
+      <PageSection className="textured-surface">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-gradient-to-br from-secondary to-primary text-white p-12 rounded-2xl shadow-2xl">
+            <h2 className="text-4xl font-display font-black mb-6 text-center">The Tribunal</h2>
+            <p className="text-xl leading-relaxed mb-6">
+              The Tribunal serves as the governing body responsible for maintaining doctrinal integrity, resolving
+              disputes, and ensuring accountability within the fellowship. Composed of senior apostolic leaders and elders,
+              the Tribunal provides wisdom, guidance, and oversight in matters of church discipline, doctrine, and
+              governance.
+            </p>
+            <p className="text-xl leading-relaxed">
+              Operating with transparency and biblical authority, the Tribunal ensures that all decisions align with
+              Scripture and the core values of KMI Fellowship, protecting the spiritual health and unity of the church.
+            </p>
+          </div>
         </div>
       </PageSection>
 
-      {/* Accountability & Legal Compliance */}
+      {/* Leadership Values */}
       <PageSection background="muted">
-        <div className="bg-white p-8 rounded-lg border-l-4 border-[oklch(var(--revival-orange))]">
-          <SubsectionTitle>Accountability & Legal Compliance</SubsectionTitle>
-          <BodyText>
-            Any matters involving criminal activity, abuse, or legal violations are not handled internally. Such matters
-            are reported immediately and directly to the appropriate local law enforcement or civil authorities in
-            accordance with the law. KMI Fellowship of Churches is committed to transparency, safety, and legal
-            responsibility.
-          </BodyText>
-        </div>
-      </PageSection>
+        <div className="max-w-4xl mx-auto">
+          <SectionTitle className="text-center">
+            <span className="section-title-decorated">Our Leadership Values</span>
+          </SectionTitle>
+          <div className="space-y-6 mt-10">
+            <div className="card-surface p-8">
+              <h3 className="text-2xl font-bold text-primary mb-3 font-display">Servant Leadership</h3>
+              <p className="text-foreground leading-relaxed text-lg">
+                We lead by example, following Christ's model of humble service and sacrificial love.
+              </p>
+            </div>
 
-      {/* Leadership Philosophy */}
-      <PageSection>
-        <SectionTitle>Leadership Philosophy</SectionTitle>
-        <BodyText>Our leadership structure is designed to:</BodyText>
-        <ul className="space-y-3 text-foreground text-lg mt-4">
-          <li className="flex items-start gap-3">
-            <span className="text-[oklch(var(--flame-gold))] text-2xl">•</span>
-            <span>Honor biblical order</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-[oklch(var(--flame-gold))] text-2xl">•</span>
-            <span>Protect the integrity of ministry</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-[oklch(var(--flame-gold))] text-2xl">•</span>
-            <span>Equip leaders for service</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-[oklch(var(--flame-gold))] text-2xl">•</span>
-            <span>Provide accountability and spiritual covering</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-[oklch(var(--flame-gold))] text-2xl">•</span>
-            <span>Serve the Body of Christ with wisdom and humility</span>
-          </li>
-        </ul>
+            <div className="card-surface p-8">
+              <h3 className="text-2xl font-bold text-primary mb-3 font-display">Biblical Integrity</h3>
+              <p className="text-foreground leading-relaxed text-lg">
+                All leadership decisions are grounded in Scripture and guided by the Holy Spirit.
+              </p>
+            </div>
+
+            <div className="card-surface p-8">
+              <h3 className="text-2xl font-bold text-primary mb-3 font-display">Accountability & Transparency</h3>
+              <p className="text-foreground leading-relaxed text-lg">
+                We operate with openness and accountability, ensuring trust and integrity in all we do.
+              </p>
+            </div>
+
+            <div className="card-surface p-8">
+              <h3 className="text-2xl font-bold text-primary mb-3 font-display">Collaborative Ministry</h3>
+              <p className="text-foreground leading-relaxed text-lg">
+                We believe in shared leadership, empowering others to use their gifts and serve effectively.
+              </p>
+            </div>
+          </div>
+        </div>
       </PageSection>
     </>
   );
 }
+

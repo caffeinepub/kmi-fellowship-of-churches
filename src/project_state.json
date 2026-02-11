@@ -1,49 +1,28 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Website project: update visual design with more color and flair reflecting a Black Apostolic & Holiness church vibe while still feeling mixed-denomination.",
+  "summary": "Update ministry webpage content: correct 'Alter Bearers' to 'Armor Bearers', ensure it appears under 'Get Involved' > 'Ministry Auxiliaries', and refresh ministry images to a modern, young, vibrant look.",
   "architectural_notes": [],
-  "known_issues": [],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Subtle ornamental gold divider flourish on transparent background (holiness-divider.dim_1600x200.png)\n- Seamless dark textured background (subtle fabric/stone-like) (holiness-texture-tile.dim_1024x1024.png)\n\n## Edit Images\n- Warm up and increase contrast/saturation for a more celebratory worship feel (kmi-hero.dim_1920x800.png > kmi-hero-holiness.dim_1920x800.png)",
+  "known_issues": [
+    "Ministry webpage uses outdated imagery (appears 70s/80s) and does not reflect current young/vibrant ministry leadership.",
+    "'Alter Bearers' label is incorrect; should be 'Armor Bearers' (and placement under Get Involved/Ministry Auxiliaries may be incorrect)."
+  ],
+  "isFixRequest": true,
+  "imageRequirements": "## Required Images\n- Modern, vibrant church ministry collage with diverse young adults, warm lighting, contemporary color grading (ministry-seals-modern-collage.dim_1200x1200.png)\n- Modern event flyer-style graphic with contemporary typography and abstract gradients, clean layout, 21st-century design (gathering-at-6-modern-flyer.dim_1200x1200.png)\n- Modern ‘Save the Date’ flyer-style graphic with bold contemporary typography, bright accents, minimal layout (save-the-date-modern-flyer.dim_1200x1200.png)\n- Modern community outreach photo-style visual with young volunteers, candid energy, contemporary editing (church-outreach-modern.dim_1200x1200.png)",
   "existing_features": [
     {
-      "id": "feature-update-the-global-design-theme-to-add-more-color-energy-and-flare-while-reflecting-a-black-apostolic-holiness-church-aesthetic-that-still-feels-welcoming-to-a-mixed-denomination-audience-apply-the-theme-consistently-across-all-pages-nav-hero-sections-cards-typography-buttons-links-and-special-blocks",
-      "title": "Update the global design theme to add more color, energy, and “flare” while reflecting a Black Apostolic & Holiness church aesthetic that still feels welcoming to a mixed-denomination audience; apply the theme consistently across all pages (nav, hero, sections, cards, typography, buttons, links, and special blocks).",
+      "id": "feature-update-the-ministry-auxiliaries-item-currently-labeled-altar-bearers-user-referred-to-it-as-alter-bearers-to-instead-display-the-title-armor-bearers-under-the-get-involved-page",
+      "title": "Update the Ministry Auxiliaries item currently labeled “Altar Bearers” (user referred to it as “Alter Bearers”) to instead display the title “Armor Bearers” under the Get Involved page.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-revise-tailwind-theme-tokens-and-component-utility-classes-in-frontend-src-index-css-to-support-the-new-look-e-g-deeper-near-black-nav-surfaces-warm-gold-accents-richer-secondary-highlights-improved-section-surface-contrast-and-ensure-accessible-contrast-for-text-links-and-buttons",
-      "title": "Revise Tailwind theme tokens and component utility classes in frontend/src/index.css to support the new look (e.g., deeper near-black/nav surfaces, warm gold accents, richer secondary highlights, improved section surface contrast), and ensure accessible contrast for text, links, and buttons.",
+      "id": "feature-replace-the-ministry-page-images-that-currently-appear-outdated-70s-80s-look-with-new-modern-21st-century-visuals-that-reflect-young-vibrant-leadership-update-the-ministries-page-image-catalog-to-use-the-new-assets",
+      "title": "Replace the ministry page images that currently appear outdated (70s/80s look) with new, modern 21st-century visuals that reflect young, vibrant leadership; update the Ministries page image catalog to use the new assets.",
       "reqIds": [
         "REQ-2"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-restyle-the-header-and-footer-to-match-the-updated-theme-enhance-background-treatment-e-g-subtle-gradient-or-elevated-dark-surface-improve-active-link-styling-and-add-tasteful-accents-that-convey-a-celebratory-church-feel-while-keeping-all-routes-and-labels-unchanged",
-      "title": "Restyle the header and footer to match the updated theme: enhance background treatment (e.g., subtle gradient or elevated dark surface), improve active link styling, and add tasteful accents that convey a celebratory church feel while keeping all routes and labels unchanged.",
-      "reqIds": [
-        "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-enhance-the-home-page-hero-presentation-to-align-with-the-new-aesthetic-richer-overlay-improved-contrast-more-dramatic-celebratory-feel-while-keeping-existing-hero-layout-and-ctas-intact",
-      "title": "Enhance the Home page hero presentation to align with the new aesthetic (richer overlay, improved contrast, more dramatic/celebratory feel) while keeping existing hero layout and CTAs intact.",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-subtle-visual-flair-elements-that-can-be-reused-across-the-site-e-g-ornamental-dividers-subtle-texture-overlays-or-accent-patterns-and-apply-them-sparingly-to-key-areas-such-as-the-hero-section-headers-and-special-blocks-without-cluttering-the-ui",
-      "title": "Add subtle visual “flair” elements that can be reused across the site (e.g., ornamental dividers, subtle texture overlays, or accent patterns) and apply them sparingly to key areas such as the hero, section headers, and special blocks without cluttering the UI.",
-      "reqIds": [
-        "REQ-5"
       ],
       "version": 1
     }
@@ -51,12 +30,18 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Revise website visual styling (color, flair, overall look) to reflect a Black Apostolic & Holiness church aesthetic while maintaining mixed-denomination appeal",
+      "summary": "Rename 'Alter Bearers' to 'Armor Bearers' under 'Ministry Auxiliaries' and ensure placement under 'Get Involved'.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Replace ministry webpage images with modern, up-to-date photos that reflect young, vibrant 21st-century leadership.",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "projectName": "Restyle site with vibrant Black Apostolic & Holiness aesthetic (mixed-denomination friendly)",
+  "projectName": "Fix 'Armor Bearers' label under Get Involved and refresh ministry page imagery to a modern, youthful look",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

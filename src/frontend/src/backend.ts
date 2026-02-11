@@ -89,6 +89,18 @@ export class ExternalBlob {
         return this;
     }
 }
+export interface PrayerRequest {
+    id: bigint;
+    isEmergency: boolean;
+    status: RequestStatus;
+    urgencyLevel: UrgencyLevel;
+    prayerRequest: string;
+    fullName: string;
+    submittedAt: bigint;
+    submittedBy?: Principal;
+    emailAddress: string;
+    phoneNumber?: string;
+}
 export interface AppointmentRequest {
     urgencyLevel: UrgencyLevel;
     fullName: string;
@@ -108,6 +120,11 @@ export interface UserProfile {
     name: string;
     email: string;
     phone: string;
+}
+export enum RequestStatus {
+    resolved = "resolved",
+    open = "open",
+    inProgress = "inProgress"
 }
 export enum RequestType {
     other = "other",
@@ -129,15 +146,21 @@ export enum UserRole {
 export interface backendInterface {
     _initializeAccessControlWithSecret(userSecret: string): Promise<void>;
     assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
+    getAllPrayerRequests(): Promise<Array<PrayerRequest>>;
     getAllRequests(): Promise<Array<AppointmentRequest>>;
     getCallerUserProfile(): Promise<UserProfile | null>;
     getCallerUserRole(): Promise<UserRole>;
+    getEmergencyPrayerRequests(): Promise<Array<PrayerRequest>>;
+    getPrayerRequest(id: bigint): Promise<PrayerRequest | null>;
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     isCallerAdmin(): Promise<boolean>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
     submitAppointmentRequest(request: AppointmentRequest): Promise<void>;
+    submitEmergencyPrayer(fullName: string, emailAddress: string, prayerRequest: string): Promise<bigint>;
+    submitPrayerRequest(fullName: string, emailAddress: string, phoneNumber: string | null, prayerRequest: string, urgencyLevel: UrgencyLevel): Promise<bigint>;
+    updatePrayerRequestStatus(id: bigint, newStatus: RequestStatus): Promise<void>;
 }
-import type { AppointmentRequest as _AppointmentRequest, RequestType as _RequestType, UrgencyLevel as _UrgencyLevel, UserProfile as _UserProfile, UserRole as _UserRole } from "./declarations/backend.did.d.ts";
+import type { AppointmentRequest as _AppointmentRequest, PrayerRequest as _PrayerRequest, RequestStatus as _RequestStatus, RequestType as _RequestType, UrgencyLevel as _UrgencyLevel, UserProfile as _UserProfile, UserRole as _UserRole } from "./declarations/backend.did.d.ts";
 export class Backend implements backendInterface {
     constructor(private actor: ActorSubclass<_SERVICE>, private _uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, private _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, private processError?: (error: unknown) => never){}
     async _initializeAccessControlWithSecret(arg0: string): Promise<void> {
@@ -168,60 +191,102 @@ export class Backend implements backendInterface {
             return result;
         }
     }
-    async getAllRequests(): Promise<Array<AppointmentRequest>> {
+    async getAllPrayerRequests(): Promise<Array<PrayerRequest>> {
         if (this.processError) {
             try {
-                const result = await this.actor.getAllRequests();
+                const result = await this.actor.getAllPrayerRequests();
                 return from_candid_vec_n3(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
-            const result = await this.actor.getAllRequests();
+            const result = await this.actor.getAllPrayerRequests();
             return from_candid_vec_n3(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getAllRequests(): Promise<Array<AppointmentRequest>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getAllRequests();
+                return from_candid_vec_n12(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getAllRequests();
+            return from_candid_vec_n12(this._uploadFile, this._downloadFile, result);
         }
     }
     async getCallerUserProfile(): Promise<UserProfile | null> {
         if (this.processError) {
             try {
                 const result = await this.actor.getCallerUserProfile();
-                return from_candid_opt_n12(this._uploadFile, this._downloadFile, result);
+                return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getCallerUserProfile();
-            return from_candid_opt_n12(this._uploadFile, this._downloadFile, result);
+            return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
         }
     }
     async getCallerUserRole(): Promise<UserRole> {
         if (this.processError) {
             try {
                 const result = await this.actor.getCallerUserRole();
-                return from_candid_UserRole_n13(this._uploadFile, this._downloadFile, result);
+                return from_candid_UserRole_n18(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getCallerUserRole();
-            return from_candid_UserRole_n13(this._uploadFile, this._downloadFile, result);
+            return from_candid_UserRole_n18(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getEmergencyPrayerRequests(): Promise<Array<PrayerRequest>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getEmergencyPrayerRequests();
+                return from_candid_vec_n3(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getEmergencyPrayerRequests();
+            return from_candid_vec_n3(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getPrayerRequest(arg0: bigint): Promise<PrayerRequest | null> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getPrayerRequest(arg0);
+                return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getPrayerRequest(arg0);
+            return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
         }
     }
     async getUserProfile(arg0: Principal): Promise<UserProfile | null> {
         if (this.processError) {
             try {
                 const result = await this.actor.getUserProfile(arg0);
-                return from_candid_opt_n12(this._uploadFile, this._downloadFile, result);
+                return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getUserProfile(arg0);
-            return from_candid_opt_n12(this._uploadFile, this._downloadFile, result);
+            return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
         }
     }
     async isCallerAdmin(): Promise<boolean> {
@@ -255,40 +320,91 @@ export class Backend implements backendInterface {
     async submitAppointmentRequest(arg0: AppointmentRequest): Promise<void> {
         if (this.processError) {
             try {
-                const result = await this.actor.submitAppointmentRequest(to_candid_AppointmentRequest_n15(this._uploadFile, this._downloadFile, arg0));
+                const result = await this.actor.submitAppointmentRequest(to_candid_AppointmentRequest_n21(this._uploadFile, this._downloadFile, arg0));
                 return result;
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
-            const result = await this.actor.submitAppointmentRequest(to_candid_AppointmentRequest_n15(this._uploadFile, this._downloadFile, arg0));
+            const result = await this.actor.submitAppointmentRequest(to_candid_AppointmentRequest_n21(this._uploadFile, this._downloadFile, arg0));
+            return result;
+        }
+    }
+    async submitEmergencyPrayer(arg0: string, arg1: string, arg2: string): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.submitEmergencyPrayer(arg0, arg1, arg2);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.submitEmergencyPrayer(arg0, arg1, arg2);
+            return result;
+        }
+    }
+    async submitPrayerRequest(arg0: string, arg1: string, arg2: string | null, arg3: string, arg4: UrgencyLevel): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.submitPrayerRequest(arg0, arg1, to_candid_opt_n27(this._uploadFile, this._downloadFile, arg2), arg3, to_candid_UrgencyLevel_n23(this._uploadFile, this._downloadFile, arg4));
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.submitPrayerRequest(arg0, arg1, to_candid_opt_n27(this._uploadFile, this._downloadFile, arg2), arg3, to_candid_UrgencyLevel_n23(this._uploadFile, this._downloadFile, arg4));
+            return result;
+        }
+    }
+    async updatePrayerRequestStatus(arg0: bigint, arg1: RequestStatus): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.updatePrayerRequestStatus(arg0, to_candid_RequestStatus_n28(this._uploadFile, this._downloadFile, arg1));
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.updatePrayerRequestStatus(arg0, to_candid_RequestStatus_n28(this._uploadFile, this._downloadFile, arg1));
             return result;
         }
     }
 }
-function from_candid_AppointmentRequest_n4(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _AppointmentRequest): AppointmentRequest {
+function from_candid_AppointmentRequest_n13(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _AppointmentRequest): AppointmentRequest {
+    return from_candid_record_n14(_uploadFile, _downloadFile, value);
+}
+function from_candid_PrayerRequest_n4(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _PrayerRequest): PrayerRequest {
     return from_candid_record_n5(_uploadFile, _downloadFile, value);
 }
-function from_candid_RequestType_n10(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _RequestType): RequestType {
-    return from_candid_variant_n11(_uploadFile, _downloadFile, value);
-}
-function from_candid_UrgencyLevel_n6(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _UrgencyLevel): UrgencyLevel {
+function from_candid_RequestStatus_n6(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _RequestStatus): RequestStatus {
     return from_candid_variant_n7(_uploadFile, _downloadFile, value);
 }
-function from_candid_UserRole_n13(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _UserRole): UserRole {
-    return from_candid_variant_n14(_uploadFile, _downloadFile, value);
+function from_candid_RequestType_n15(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _RequestType): RequestType {
+    return from_candid_variant_n16(_uploadFile, _downloadFile, value);
 }
-function from_candid_opt_n12(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_UserProfile]): UserProfile | null {
+function from_candid_UrgencyLevel_n8(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _UrgencyLevel): UrgencyLevel {
+    return from_candid_variant_n9(_uploadFile, _downloadFile, value);
+}
+function from_candid_UserRole_n18(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _UserRole): UserRole {
+    return from_candid_variant_n19(_uploadFile, _downloadFile, value);
+}
+function from_candid_opt_n10(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [Principal]): Principal | null {
     return value.length === 0 ? null : value[0];
 }
-function from_candid_opt_n8(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [Principal]): Principal | null {
+function from_candid_opt_n11(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [string]): string | null {
     return value.length === 0 ? null : value[0];
 }
-function from_candid_opt_n9(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [string]): string | null {
+function from_candid_opt_n17(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_UserProfile]): UserProfile | null {
     return value.length === 0 ? null : value[0];
 }
-function from_candid_record_n5(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+function from_candid_opt_n20(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_PrayerRequest]): PrayerRequest | null {
+    return value.length === 0 ? null : from_candid_PrayerRequest_n4(_uploadFile, _downloadFile, value[0]);
+}
+function from_candid_record_n14(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     urgencyLevel: _UrgencyLevel;
     fullName: string;
     submittedAt: bigint;
@@ -318,22 +434,58 @@ function from_candid_record_n5(_uploadFile: (file: ExternalBlob) => Promise<Uint
     leaderRequested: string;
 } {
     return {
-        urgencyLevel: from_candid_UrgencyLevel_n6(_uploadFile, _downloadFile, value.urgencyLevel),
+        urgencyLevel: from_candid_UrgencyLevel_n8(_uploadFile, _downloadFile, value.urgencyLevel),
         fullName: value.fullName,
         submittedAt: value.submittedAt,
-        submittedBy: record_opt_to_undefined(from_candid_opt_n8(_uploadFile, _downloadFile, value.submittedBy)),
-        churchOrOrganization: record_opt_to_undefined(from_candid_opt_n9(_uploadFile, _downloadFile, value.churchOrOrganization)),
+        submittedBy: record_opt_to_undefined(from_candid_opt_n10(_uploadFile, _downloadFile, value.submittedBy)),
+        churchOrOrganization: record_opt_to_undefined(from_candid_opt_n11(_uploadFile, _downloadFile, value.churchOrOrganization)),
         preferredDate: value.preferredDate,
         preferredTime: value.preferredTime,
         consentGiven: value.consentGiven,
         details: value.details,
         emailAddress: value.emailAddress,
         phoneNumber: value.phoneNumber,
-        requestType: from_candid_RequestType_n10(_uploadFile, _downloadFile, value.requestType),
+        requestType: from_candid_RequestType_n15(_uploadFile, _downloadFile, value.requestType),
         leaderRequested: value.leaderRequested
     };
 }
-function from_candid_variant_n11(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+function from_candid_record_n5(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+    id: bigint;
+    isEmergency: boolean;
+    status: _RequestStatus;
+    urgencyLevel: _UrgencyLevel;
+    prayerRequest: string;
+    fullName: string;
+    submittedAt: bigint;
+    submittedBy: [] | [Principal];
+    emailAddress: string;
+    phoneNumber: [] | [string];
+}): {
+    id: bigint;
+    isEmergency: boolean;
+    status: RequestStatus;
+    urgencyLevel: UrgencyLevel;
+    prayerRequest: string;
+    fullName: string;
+    submittedAt: bigint;
+    submittedBy?: Principal;
+    emailAddress: string;
+    phoneNumber?: string;
+} {
+    return {
+        id: value.id,
+        isEmergency: value.isEmergency,
+        status: from_candid_RequestStatus_n6(_uploadFile, _downloadFile, value.status),
+        urgencyLevel: from_candid_UrgencyLevel_n8(_uploadFile, _downloadFile, value.urgencyLevel),
+        prayerRequest: value.prayerRequest,
+        fullName: value.fullName,
+        submittedAt: value.submittedAt,
+        submittedBy: record_opt_to_undefined(from_candid_opt_n10(_uploadFile, _downloadFile, value.submittedBy)),
+        emailAddress: value.emailAddress,
+        phoneNumber: record_opt_to_undefined(from_candid_opt_n11(_uploadFile, _downloadFile, value.phoneNumber))
+    };
+}
+function from_candid_variant_n16(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     other: null;
 } | {
     speakingEngagement: null;
@@ -346,7 +498,7 @@ function from_candid_variant_n11(_uploadFile: (file: ExternalBlob) => Promise<Ui
 }): RequestType {
     return "other" in value ? RequestType.other : "speakingEngagement" in value ? RequestType.speakingEngagement : "mediaInterview" in value ? RequestType.mediaInterview : "prayerCounseling" in value ? RequestType.prayerCounseling : "consultation" in value ? RequestType.consultation : value;
 }
-function from_candid_variant_n14(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+function from_candid_variant_n19(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     admin: null;
 } | {
     user: null;
@@ -356,6 +508,15 @@ function from_candid_variant_n14(_uploadFile: (file: ExternalBlob) => Promise<Ui
     return "admin" in value ? UserRole.admin : "user" in value ? UserRole.user : "guest" in value ? UserRole.guest : value;
 }
 function from_candid_variant_n7(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+    resolved: null;
+} | {
+    open: null;
+} | {
+    inProgress: null;
+}): RequestStatus {
+    return "resolved" in value ? RequestStatus.resolved : "open" in value ? RequestStatus.open : "inProgress" in value ? RequestStatus.inProgress : value;
+}
+function from_candid_variant_n9(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     emergency: null;
 } | {
     routine: null;
@@ -364,22 +525,31 @@ function from_candid_variant_n7(_uploadFile: (file: ExternalBlob) => Promise<Uin
 }): UrgencyLevel {
     return "emergency" in value ? UrgencyLevel.emergency : "routine" in value ? UrgencyLevel.routine : "timeSensitive" in value ? UrgencyLevel.timeSensitive : value;
 }
-function from_candid_vec_n3(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_AppointmentRequest>): Array<AppointmentRequest> {
-    return value.map((x)=>from_candid_AppointmentRequest_n4(_uploadFile, _downloadFile, x));
+function from_candid_vec_n12(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_AppointmentRequest>): Array<AppointmentRequest> {
+    return value.map((x)=>from_candid_AppointmentRequest_n13(_uploadFile, _downloadFile, x));
 }
-function to_candid_AppointmentRequest_n15(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: AppointmentRequest): _AppointmentRequest {
-    return to_candid_record_n16(_uploadFile, _downloadFile, value);
+function from_candid_vec_n3(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_PrayerRequest>): Array<PrayerRequest> {
+    return value.map((x)=>from_candid_PrayerRequest_n4(_uploadFile, _downloadFile, x));
 }
-function to_candid_RequestType_n19(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: RequestType): _RequestType {
-    return to_candid_variant_n20(_uploadFile, _downloadFile, value);
+function to_candid_AppointmentRequest_n21(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: AppointmentRequest): _AppointmentRequest {
+    return to_candid_record_n22(_uploadFile, _downloadFile, value);
 }
-function to_candid_UrgencyLevel_n17(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: UrgencyLevel): _UrgencyLevel {
-    return to_candid_variant_n18(_uploadFile, _downloadFile, value);
+function to_candid_RequestStatus_n28(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: RequestStatus): _RequestStatus {
+    return to_candid_variant_n29(_uploadFile, _downloadFile, value);
+}
+function to_candid_RequestType_n25(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: RequestType): _RequestType {
+    return to_candid_variant_n26(_uploadFile, _downloadFile, value);
+}
+function to_candid_UrgencyLevel_n23(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: UrgencyLevel): _UrgencyLevel {
+    return to_candid_variant_n24(_uploadFile, _downloadFile, value);
 }
 function to_candid_UserRole_n1(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: UserRole): _UserRole {
     return to_candid_variant_n2(_uploadFile, _downloadFile, value);
 }
-function to_candid_record_n16(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+function to_candid_opt_n27(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: string | null): [] | [string] {
+    return value === null ? candid_none() : candid_some(value);
+}
+function to_candid_record_n22(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     urgencyLevel: UrgencyLevel;
     fullName: string;
     submittedAt: bigint;
@@ -409,7 +579,7 @@ function to_candid_record_n16(_uploadFile: (file: ExternalBlob) => Promise<Uint8
     leaderRequested: string;
 } {
     return {
-        urgencyLevel: to_candid_UrgencyLevel_n17(_uploadFile, _downloadFile, value.urgencyLevel),
+        urgencyLevel: to_candid_UrgencyLevel_n23(_uploadFile, _downloadFile, value.urgencyLevel),
         fullName: value.fullName,
         submittedAt: value.submittedAt,
         submittedBy: value.submittedBy ? candid_some(value.submittedBy) : candid_none(),
@@ -420,24 +590,9 @@ function to_candid_record_n16(_uploadFile: (file: ExternalBlob) => Promise<Uint8
         details: value.details,
         emailAddress: value.emailAddress,
         phoneNumber: value.phoneNumber,
-        requestType: to_candid_RequestType_n19(_uploadFile, _downloadFile, value.requestType),
+        requestType: to_candid_RequestType_n25(_uploadFile, _downloadFile, value.requestType),
         leaderRequested: value.leaderRequested
     };
-}
-function to_candid_variant_n18(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: UrgencyLevel): {
-    emergency: null;
-} | {
-    routine: null;
-} | {
-    timeSensitive: null;
-} {
-    return value == UrgencyLevel.emergency ? {
-        emergency: null
-    } : value == UrgencyLevel.routine ? {
-        routine: null
-    } : value == UrgencyLevel.timeSensitive ? {
-        timeSensitive: null
-    } : value;
 }
 function to_candid_variant_n2(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: UserRole): {
     admin: null;
@@ -454,7 +609,22 @@ function to_candid_variant_n2(_uploadFile: (file: ExternalBlob) => Promise<Uint8
         guest: null
     } : value;
 }
-function to_candid_variant_n20(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: RequestType): {
+function to_candid_variant_n24(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: UrgencyLevel): {
+    emergency: null;
+} | {
+    routine: null;
+} | {
+    timeSensitive: null;
+} {
+    return value == UrgencyLevel.emergency ? {
+        emergency: null
+    } : value == UrgencyLevel.routine ? {
+        routine: null
+    } : value == UrgencyLevel.timeSensitive ? {
+        timeSensitive: null
+    } : value;
+}
+function to_candid_variant_n26(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: RequestType): {
     other: null;
 } | {
     speakingEngagement: null;
@@ -475,6 +645,21 @@ function to_candid_variant_n20(_uploadFile: (file: ExternalBlob) => Promise<Uint
         prayerCounseling: null
     } : value == RequestType.consultation ? {
         consultation: null
+    } : value;
+}
+function to_candid_variant_n29(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: RequestStatus): {
+    resolved: null;
+} | {
+    open: null;
+} | {
+    inProgress: null;
+} {
+    return value == RequestStatus.resolved ? {
+        resolved: null
+    } : value == RequestStatus.open ? {
+        open: null
+    } : value == RequestStatus.inProgress ? {
+        inProgress: null
     } : value;
 }
 export interface CreateActorOptions {

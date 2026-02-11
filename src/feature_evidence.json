@@ -2,13 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-global-design-theme-to-add-more-color-energy-and-flare-while-reflecting-a-black-apostolic-holiness-church-aesthetic-that-still-feels-welcoming-to-a-mixed-denomination-audience-apply-the-theme-consistently-across-all-pages-nav-hero-sections-cards-typography-buttons-links-and-special-blocks",
-      "featureTitle": "Update the global design theme to add more color, energy, and “flare” while reflecting a Black Apostolic & Holiness church aesthetic that still feels welcoming to a mixed-denomination audience; apply the theme consistently across all pages (nav, hero, sections, cards, typography, buttons, links, and special blocks).",
+      "featureId": "feature-update-the-ministry-auxiliaries-item-currently-labeled-altar-bearers-user-referred-to-it-as-alter-bearers-to-instead-display-the-title-armor-bearers-under-the-get-involved-page",
+      "featureTitle": "Update the Ministry Auxiliaries item currently labeled “Altar Bearers” (user referred to it as “Alter Bearers”) to instead display the title “Armor Bearers” under the Get Involved page.",
       "files": [
-        "frontend/src/components/PageSection.tsx",
-        "frontend/src/components/Typography.tsx",
-        "frontend/src/components/home/UpcomingEventsSection.tsx",
-        "frontend/src/index.css"
+        "frontend/src/pages/GetInvolvedPage.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -24,11 +21,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-revise-tailwind-theme-tokens-and-component-utility-classes-in-frontend-src-index-css-to-support-the-new-look-e-g-deeper-near-black-nav-surfaces-warm-gold-accents-richer-secondary-highlights-improved-section-surface-contrast-and-ensure-accessible-contrast-for-text-links-and-buttons",
-      "featureTitle": "Revise Tailwind theme tokens and component utility classes in frontend/src/index.css to support the new look (e.g., deeper near-black/nav surfaces, warm gold accents, richer secondary highlights, improved section surface contrast), and ensure accessible contrast for text, links, and buttons.",
+      "featureId": "feature-replace-the-ministry-page-images-that-currently-appear-outdated-70s-80s-look-with-new-modern-21st-century-visuals-that-reflect-young-vibrant-leadership-update-the-ministries-page-image-catalog-to-use-the-new-assets",
+      "featureTitle": "Replace the ministry page images that currently appear outdated (70s/80s look) with new, modern 21st-century visuals that reflect young, vibrant leadership; update the Ministries page image catalog to use the new assets.",
       "files": [
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
+        "frontend/src/content/ministrySeals.ts"
       ],
       "components": [
         "authorization@4.0.0",
@@ -40,68 +36,6 @@
       ],
       "testIds": [
         "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-restyle-the-header-and-footer-to-match-the-updated-theme-enhance-background-treatment-e-g-subtle-gradient-or-elevated-dark-surface-improve-active-link-styling-and-add-tasteful-accents-that-convey-a-celebratory-church-feel-while-keeping-all-routes-and-labels-unchanged",
-      "featureTitle": "Restyle the header and footer to match the updated theme: enhance background treatment (e.g., subtle gradient or elevated dark surface), improve active link styling, and add tasteful accents that convey a celebratory church feel while keeping all routes and labels unchanged.",
-      "files": [
-        "frontend/src/components/PrimaryCtas.tsx",
-        "frontend/src/components/SiteFooter.tsx",
-        "frontend/src/components/SiteNav.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-enhance-the-home-page-hero-presentation-to-align-with-the-new-aesthetic-richer-overlay-improved-contrast-more-dramatic-celebratory-feel-while-keeping-existing-hero-layout-and-ctas-intact",
-      "featureTitle": "Enhance the Home page hero presentation to align with the new aesthetic (richer overlay, improved contrast, more dramatic/celebratory feel) while keeping existing hero layout and CTAs intact.",
-      "files": [
-        "frontend/src/pages/HomePage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-subtle-visual-flair-elements-that-can-be-reused-across-the-site-e-g-ornamental-dividers-subtle-texture-overlays-or-accent-patterns-and-apply-them-sparingly-to-key-areas-such-as-the-hero-section-headers-and-special-blocks-without-cluttering-the-ui",
-      "featureTitle": "Add subtle visual “flair” elements that can be reused across the site (e.g., ornamental dividers, subtle texture overlays, or accent patterns) and apply them sparingly to key areas such as the hero, section headers, and special blocks without cluttering the UI.",
-      "files": [
-        "frontend/src/components/BrandSections.tsx",
-        "frontend/src/components/Typography.tsx",
-        "frontend/src/index.css",
-        "frontend/src/pages/HomePage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-5"
       ],
       "confidence": "high"
     }

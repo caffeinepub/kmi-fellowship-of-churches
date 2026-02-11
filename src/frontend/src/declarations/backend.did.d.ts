@@ -25,6 +25,21 @@ export interface AppointmentRequest {
   'requestType' : RequestType,
   'leaderRequested' : string,
 }
+export interface PrayerRequest {
+  'id' : bigint,
+  'isEmergency' : boolean,
+  'status' : RequestStatus,
+  'urgencyLevel' : UrgencyLevel,
+  'prayerRequest' : string,
+  'fullName' : string,
+  'submittedAt' : bigint,
+  'submittedBy' : [] | [Principal],
+  'emailAddress' : string,
+  'phoneNumber' : [] | [string],
+}
+export type RequestStatus = { 'resolved' : null } |
+  { 'open' : null } |
+  { 'inProgress' : null };
 export type RequestType = { 'other' : null } |
   { 'speakingEngagement' : null } |
   { 'mediaInterview' : null } |
@@ -44,13 +59,22 @@ export type UserRole = { 'admin' : null } |
 export interface _SERVICE {
   '_initializeAccessControlWithSecret' : ActorMethod<[string], undefined>,
   'assignCallerUserRole' : ActorMethod<[Principal, UserRole], undefined>,
+  'getAllPrayerRequests' : ActorMethod<[], Array<PrayerRequest>>,
   'getAllRequests' : ActorMethod<[], Array<AppointmentRequest>>,
   'getCallerUserProfile' : ActorMethod<[], [] | [UserProfile]>,
   'getCallerUserRole' : ActorMethod<[], UserRole>,
+  'getEmergencyPrayerRequests' : ActorMethod<[], Array<PrayerRequest>>,
+  'getPrayerRequest' : ActorMethod<[bigint], [] | [PrayerRequest]>,
   'getUserProfile' : ActorMethod<[Principal], [] | [UserProfile]>,
   'isCallerAdmin' : ActorMethod<[], boolean>,
   'saveCallerUserProfile' : ActorMethod<[UserProfile], undefined>,
   'submitAppointmentRequest' : ActorMethod<[AppointmentRequest], undefined>,
+  'submitEmergencyPrayer' : ActorMethod<[string, string, string], bigint>,
+  'submitPrayerRequest' : ActorMethod<
+    [string, string, [] | [string], string, UrgencyLevel],
+    bigint
+  >,
+  'updatePrayerRequestStatus' : ActorMethod<[bigint, RequestStatus], undefined>,
 }
 export declare const idlService: IDL.ServiceClass;
 export declare const idlInitArgs: IDL.Type[];

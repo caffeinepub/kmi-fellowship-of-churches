@@ -1,126 +1,66 @@
 {
   "kind": "build_request",
-  "title": "Restyle site with vibrant Black Apostolic & Holiness aesthetic (mixed-denomination friendly)",
+  "title": "Fix 'Armor Bearers' label under Get Involved and refresh ministry page imagery to a modern, youthful look",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the global design theme to add more color, energy, and “flare” while reflecting a Black Apostolic & Holiness church aesthetic that still feels welcoming to a mixed-denomination audience; apply the theme consistently across all pages (nav, hero, sections, cards, typography, buttons, links, and special blocks).",
+      "text": "Update the Ministry Auxiliaries item currently labeled “Altar Bearers” (user referred to it as “Alter Bearers”) to instead display the title “Armor Bearers” under the Get Involved page.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-4"
         ],
         "quotes": [
-          "Add some color and flare to the website make it look more like a black apostolic and holiness church with a mixed denomination"
+          "Under Ministry Auxiliaries, you need to edit where it says Alter Bearers. That should be Armor Bearers. Edit that. It should be under Get Involved. And under Ministry Auxiliaries, Alter Bearers should be Armor Bearers."
         ]
       },
       "acceptanceCriteria": [
-        "All public pages share a consistent visual language (palette, section surfaces, headings, buttons, cards).",
-        "The look clearly shifts toward a richer, more celebratory church aesthetic (deeper dark surfaces + warm metallic accents + vibrant highlights) without changing page content or navigation structure.",
-        "No user-facing text is changed as part of the restyle (styling-only update)."
+        "On /get-involved, within the “Ministry Auxiliaries” grid, the item title reads “Armor Bearers”.",
+        "No visible occurrences of “Alter Bearers” or “Altar Bearers” remain on the Get Involved page."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Revise Tailwind theme tokens and component utility classes in frontend/src/index.css to support the new look (e.g., deeper near-black/nav surfaces, warm gold accents, richer secondary highlights, improved section surface contrast), and ensure accessible contrast for text, links, and buttons.",
+      "text": "Replace the ministry page images that currently appear outdated (70s/80s look) with new, modern 21st-century visuals that reflect young, vibrant leadership; update the Ministries page image catalog to use the new assets.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-4"
         ],
         "quotes": [
-          "Add some color and flare to the website make it look more like a black apostolic and holiness church with a mixed denomination"
+          "Change these pictures out and make them look up-to-date. They look older, in the 70s or 80s.",
+          "So the pictures on the ministry webpage should reflect a young vibe. We don't have old leadership. We have young, vibrant leadership over this ministry. And the webpage images should reflect that."
         ]
       },
       "acceptanceCriteria": [
-        "CSS variables under :root and .dark are updated to a cohesive palette that reads as near-black + gold + warm/vibrant accents (not a blue/purple-led look).",
-        "Buttons (.btn-primary/.btn-secondary), links (.link-default), and navigation link states (.nav-link/.nav-link-active) remain readable with clear hover/focus states.",
-        "Scripture and highlight blocks (.scripture-block, .event-highlight) look more “special” (e.g., stronger border treatment/gradient/texture accent) while staying readable.",
-        "No changes are made to any immutable frontend paths listed in SYSTEM_CONTEXT."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Restyle the header and footer to match the updated theme: enhance background treatment (e.g., subtle gradient or elevated dark surface), improve active link styling, and add tasteful accents that convey a celebratory church feel while keeping all routes and labels unchanged.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-6"
-        ],
-        "quotes": [
-          "Add some color and flare to the website make it look more like a black apostolic and holiness church with a mixed denomination"
-        ]
-      },
-      "acceptanceCriteria": [
-        "SiteNav retains the same links/labels and behavior, but visually matches the new theme (background, borders, hover/active states).",
-        "SiteFooter matches the header style and theme palette and remains readable.",
-        "Desktop and mobile navigation remain functional and visually coherent after restyling."
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Enhance the Home page hero presentation to align with the new aesthetic (richer overlay, improved contrast, more dramatic/celebratory feel) while keeping existing hero layout and CTAs intact.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-6"
-        ],
-        "quotes": [
-          "Add some color and flare to the website make it look more like a black apostolic and holiness church with a mixed denomination"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The hero overlay (currently a primary gradient overlay) is updated to better fit the new palette and improve legibility of the hero title/subtitle.",
-        "Primary CTAs remain visible and readable on the hero across common screen sizes.",
-        "No route changes; Home page structure remains the same."
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Add subtle visual “flair” elements that can be reused across the site (e.g., ornamental dividers, subtle texture overlays, or accent patterns) and apply them sparingly to key areas such as the hero, section headers, and special blocks without cluttering the UI.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-6"
-        ],
-        "quotes": [
-          "Add some color and flare to the website make it look more like a black apostolic and holiness church with a mixed denomination"
-        ]
-      },
-      "acceptanceCriteria": [
-        "At least one reusable decorative element is introduced and used consistently (not randomly) across multiple pages/sections.",
-        "Decorative elements do not reduce text readability or interfere with interactions (links/buttons still easy to use).",
-        "All decorative assets are served as static frontend assets (not via the backend)."
+        "The images shown in the Ministries page “Ministry Seals” section use newly generated, modern-looking assets (not the prior dated-looking images).",
+        "New images are stored as static assets under frontend/public/assets/generated and referenced from the frontend (not served via the backend).",
+        "All updated ministry images visually read as modern/current (clean typography, contemporary photo/graphic style, vibrant and youthful tone)."
       ]
     }
   ],
   "constraints": [
-    "Frontend files under SYSTEM_CONTEXT.frontend.immutablePaths must not be edited; compose around them.",
-    "Keep backend unchanged (no new Motoko methods or state changes) since the request is purely visual.",
-    "Do not change routes, navigation labels, or page content; only update styling and static visual assets.",
-    "Do not introduce a blue/purple-dominant theme (unless explicitly requested later)."
+    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui (compose only).",
+    "Backend must remain single-actor (all Motoko logic in backend/main.mo); no backend changes are required for this request."
   ],
   "nonGoals": [
-    "Adding new pages, ministries, events, or new content sections.",
-    "Changing appointment scheduling behavior or any backend validation/storage.",
-    "Integrating third-party design systems or external font/CDN dependencies."
+    "Do not add new authentication methods or third-party integrations.",
+    "Do not introduce new ministry sections or change site routing beyond the requested text and image updates."
   ],
   "imageRequirements": {
     "required": [
-      "Subtle ornamental gold divider flourish on transparent background (holiness-divider.dim_1600x200.png)",
-      "Seamless dark textured background (subtle fabric/stone-like) (holiness-texture-tile.dim_1024x1024.png)"
+      "Modern, vibrant church ministry collage with diverse young adults, warm lighting, contemporary color grading (ministry-seals-modern-collage.dim_1200x1200.png)",
+      "Modern event flyer-style graphic with contemporary typography and abstract gradients, clean layout, 21st-century design (gathering-at-6-modern-flyer.dim_1200x1200.png)",
+      "Modern ‘Save the Date’ flyer-style graphic with bold contemporary typography, bright accents, minimal layout (save-the-date-modern-flyer.dim_1200x1200.png)",
+      "Modern community outreach photo-style visual with young volunteers, candid energy, contemporary editing (church-outreach-modern.dim_1200x1200.png)"
     ],
-    "edits": [
-      "Warm up and increase contrast/saturation for a more celebratory worship feel (kmi-hero.dim_1920x800.png > kmi-hero-holiness.dim_1920x800.png)"
-    ]
+    "edits": []
   },
   "userProfileUpdate": {
     "goalsToAdd": [],
     "goalsToRemove": [],
-    "preferencesToAdd": [
-      "Prefer a vibrant, celebratory Black Apostolic & Holiness church aesthetic with mixed-denomination friendliness for site visual design."
-    ],
+    "preferencesToAdd": [],
     "preferencesToRemove": [],
     "miscToAdd": [],
     "miscToRemove": [],

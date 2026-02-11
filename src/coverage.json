@@ -1,115 +1,58 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-09T20:18:21.191Z",
+  "generatedAt": "2026-02-11T09:29:50.337Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 5,
-    "implemented": 5,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update the global design theme to add more color, energy, and “flare” while reflecting a Black Apostolic & Holiness church aesthetic that still feels welcoming to a mixed-denomination audience; apply the theme consistently across all pages (nav, hero, sections, cards, typography, buttons, links, and special blocks).",
+        "summary": "Update the Ministry Auxiliaries item currently labeled “Altar Bearers” (user referred to it as “Alter Bearers”) to instead display the title “Armor Bearers” under the Get Involved page.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/index.css",
-          "frontend/src/components/Typography.tsx",
-          "frontend/src/components/PageSection.tsx",
-          "frontend/src/components/home/UpcomingEventsSection.tsx"
+          "frontend/src/pages/GetInvolvedPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/index.css",
-          "frontend/src/components/Typography.tsx",
-          "frontend/src/components/PageSection.tsx",
-          "frontend/src/components/home/UpcomingEventsSection.tsx"
+          "frontend/src/pages/GetInvolvedPage.tsx"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Revise Tailwind theme tokens and component utility classes in frontend/src/index.css to support the new look (e.g., deeper near-black/nav surfaces, warm gold accents, richer secondary highlights, improved section surface contrast), and ensure accessible contrast for text, links, and buttons.",
+        "summary": "Replace the ministry page images that currently appear outdated (70s/80s look) with new, modern 21st-century visuals that reflect young, vibrant leadership; update the Ministries page image catalog to use the new assets.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/index.css",
-          "frontend/tailwind.config.js"
+          "frontend/public/assets/generated/ministry-seals-modern-collage.dim_1200x1200.png",
+          "frontend/public/assets/generated/gathering-at-6-modern-flyer.dim_1200x1200.png",
+          "frontend/public/assets/generated/save-the-date-modern-flyer.dim_1200x1200.png",
+          "frontend/public/assets/generated/church-outreach-modern.dim_1200x1200.png",
+          "frontend/src/content/ministrySeals.ts"
         ],
         "matchedFiles": [
-          "frontend/src/index.css",
-          "frontend/tailwind.config.js"
-        ]
-      },
-      {
-        "id": "REQ-3",
-        "summary": "Restyle the header and footer to match the updated theme: enhance background treatment (e.g., subtle gradient or elevated dark surface), improve active link styling, and add tasteful accents that convey a celebratory church feel while keeping all routes and labels unchanged.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/SiteNav.tsx",
-          "frontend/src/components/SiteFooter.tsx",
-          "frontend/src/components/PrimaryCtas.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/SiteNav.tsx",
-          "frontend/src/components/SiteFooter.tsx",
-          "frontend/src/components/PrimaryCtas.tsx"
-        ]
-      },
-      {
-        "id": "REQ-4",
-        "summary": "Enhance the Home page hero presentation to align with the new aesthetic (richer overlay, improved contrast, more dramatic/celebratory feel) while keeping existing hero layout and CTAs intact.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/public/assets/generated/kmi-hero-holiness.dim_1920x800.png"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/public/assets/generated/kmi-hero-holiness.dim_1920x800.png"
-        ]
-      },
-      {
-        "id": "REQ-5",
-        "summary": "Add subtle visual “flair” elements that can be reused across the site (e.g., ornamental dividers, subtle texture overlays, or accent patterns) and apply them sparingly to key areas such as the hero, section headers, and special blocks without cluttering the UI.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/public/assets/generated/holiness-divider.dim_1600x200.png",
-          "frontend/public/assets/generated/holiness-texture-tile.dim_1024x1024.png",
-          "frontend/src/index.css",
-          "frontend/src/components/Typography.tsx",
-          "frontend/src/components/BrandSections.tsx",
-          "frontend/src/pages/HomePage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/public/assets/generated/holiness-divider.dim_1600x200.png",
-          "frontend/public/assets/generated/holiness-texture-tile.dim_1024x1024.png",
-          "frontend/src/index.css",
-          "frontend/src/components/Typography.tsx",
-          "frontend/src/components/BrandSections.tsx",
-          "frontend/src/pages/HomePage.tsx"
+          "frontend/public/assets/generated/ministry-seals-modern-collage.dim_1200x1200.png",
+          "frontend/public/assets/generated/gathering-at-6-modern-flyer.dim_1200x1200.png",
+          "frontend/public/assets/generated/save-the-date-modern-flyer.dim_1200x1200.png",
+          "frontend/public/assets/generated/church-outreach-modern.dim_1200x1200.png",
+          "frontend/src/content/ministrySeals.ts"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/holiness-divider.dim_1600x200.png",
-    "frontend/public/assets/generated/holiness-texture-tile.dim_1024x1024.png",
-    "frontend/public/assets/generated/kmi-hero-holiness.dim_1920x800.png",
-    "frontend/src/components/BrandSections.tsx",
-    "frontend/src/components/PageSection.tsx",
-    "frontend/src/components/PrimaryCtas.tsx",
-    "frontend/src/components/SiteFooter.tsx",
-    "frontend/src/components/SiteNav.tsx",
-    "frontend/src/components/Typography.tsx",
-    "frontend/src/components/home/UpcomingEventsSection.tsx",
-    "frontend/src/index.css",
-    "frontend/src/pages/HomePage.tsx",
-    "frontend/tailwind.config.js",
+    "frontend/public/assets/generated/church-outreach-modern.dim_1200x1200.png",
+    "frontend/public/assets/generated/gathering-at-6-modern-flyer.dim_1200x1200.png",
+    "frontend/public/assets/generated/ministry-seals-modern-collage.dim_1200x1200.png",
+    "frontend/public/assets/generated/save-the-date-modern-flyer.dim_1200x1200.png",
+    "frontend/src/content/ministrySeals.ts",
+    "frontend/src/pages/GetInvolvedPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

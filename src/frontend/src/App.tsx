@@ -1,14 +1,15 @@
 import { RouterProvider, createRouter, createRoute, createRootRoute } from '@tanstack/react-router';
 import SiteLayout from './components/SiteLayout';
 import HomePage from './pages/HomePage';
-import WhoWeArePage from './pages/WhoWeArePage';
-import OurMissionPage from './pages/OurMissionPage';
-import VisitPage from './pages/VisitPage';
-import MinistriesPage from './pages/MinistriesPage';
-import OutreachPage from './pages/OutreachPage';
-import ConnectPage from './pages/ConnectPage';
-import GatheringAt6Page from './pages/GatheringAt6Page';
-import LeadershipGovernancePage from './pages/LeadershipGovernancePage';
+import AboutMinistryPage from './pages/AboutMinistryPage';
+import LeadershipPage from './pages/LeadershipPage';
+import WorshipServicesPage from './pages/WorshipServicesPage';
+import LearningStudyPage from './pages/LearningStudyPage';
+import PropheticTrainingPage from './pages/PropheticTrainingPage';
+import KmiFellowshipPage from './pages/KmiFellowshipPage';
+import KmiGovernancePage from './pages/KmiGovernancePage';
+import GetInvolvedPage from './pages/GetInvolvedPage';
+import PrayerRequestPage from './pages/PrayerRequestPage';
 import ScheduleMeetingPage from './pages/ScheduleMeetingPage';
 
 const rootRoute = createRootRoute({
@@ -21,52 +22,58 @@ const indexRoute = createRoute({
   component: HomePage,
 });
 
-const whoWeAreRoute = createRoute({
+const aboutRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/who-we-are',
-  component: WhoWeArePage,
-});
-
-const missionRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/our-mission',
-  component: OurMissionPage,
-});
-
-const visitRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/visit',
-  component: VisitPage,
-});
-
-const ministriesRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/ministries',
-  component: MinistriesPage,
-});
-
-const outreachRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/outreach',
-  component: OutreachPage,
-});
-
-const connectRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/connect',
-  component: ConnectPage,
-});
-
-const gatheringRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/gathering-at-6',
-  component: GatheringAt6Page,
+  path: '/about',
+  component: AboutMinistryPage,
 });
 
 const leadershipRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/leadership',
-  component: LeadershipGovernancePage,
+  component: LeadershipPage,
+});
+
+const worshipServicesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/worship-services',
+  component: WorshipServicesPage,
+});
+
+const learningStudyRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/learning-study',
+  component: LearningStudyPage,
+});
+
+const propheticTrainingRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/prophetic-training',
+  component: PropheticTrainingPage,
+});
+
+const kmiFellowshipRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/kmi-fellowship',
+  component: KmiFellowshipPage,
+});
+
+const kmiGovernanceRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/kmi-governance',
+  component: KmiGovernancePage,
+});
+
+const getInvolvedRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/get-involved',
+  component: GetInvolvedPage,
+});
+
+const prayerRequestRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/prayer-request',
+  component: PrayerRequestPage,
 });
 
 const scheduleMeetingRoute = createRoute({
@@ -77,14 +84,15 @@ const scheduleMeetingRoute = createRoute({
 
 const routeTree = rootRoute.addChildren([
   indexRoute,
-  whoWeAreRoute,
-  missionRoute,
-  visitRoute,
-  ministriesRoute,
-  outreachRoute,
-  connectRoute,
-  gatheringRoute,
+  aboutRoute,
   leadershipRoute,
+  worshipServicesRoute,
+  learningStudyRoute,
+  propheticTrainingRoute,
+  kmiFellowshipRoute,
+  kmiGovernanceRoute,
+  getInvolvedRoute,
+  prayerRequestRoute,
   scheduleMeetingRoute,
 ]);
 

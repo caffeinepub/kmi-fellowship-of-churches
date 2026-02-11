@@ -1,81 +1,149 @@
+import { Link } from '@tanstack/react-router';
 import PageSection from '../components/PageSection';
 import { PageTitle, SectionTitle, BodyText } from '../components/Typography';
-import { Link } from '@tanstack/react-router';
-import { Heart, Music, BookOpen, Users } from 'lucide-react';
+import { MapPin, Clock, Users, Coffee, Heart, Smile } from 'lucide-react';
 
 export default function VisitPage() {
   return (
     <>
-      <PageSection>
-        <PageTitle>What to Expect When You Visit</PageTitle>
-        <BodyText>
-          When you join us for worship, you can expect a warm and welcoming atmosphere where God's presence is honored
-          and celebrated. Whether this is your first time in church or you've been walking with Christ for years, you'll
-          find a place where you belong.
-        </BodyText>
+      {/* Hero Section */}
+      <PageSection background="muted">
+        <div className="text-center max-w-4xl mx-auto">
+          <PageTitle>Plan Your Visit</PageTitle>
+          <BodyText className="text-foreground/70">
+            We're excited to welcome you! Here's everything you need to know to make your first visit comfortable and
+            meaningful.
+          </BodyText>
+        </div>
       </PageSection>
 
-      <PageSection background="muted">
-        <SectionTitle>You Can Expect</SectionTitle>
-        <div className="grid md:grid-cols-2 gap-6">
+      {/* What to Expect */}
+      <PageSection className="textured-surface">
+        <SectionTitle className="text-center">
+          <span className="section-title-decorated">What to Expect</span>
+        </SectionTitle>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
           <div className="icon-card">
-            <Heart className="icon-card-icon" size={32} />
+            <Smile size={48} className="icon-card-icon" />
             <div>
-              <h3 className="icon-card-title">A Warm and Welcoming Atmosphere</h3>
+              <h3 className="icon-card-title">Warm Welcome</h3>
               <p className="icon-card-text">
-                From the moment you arrive, you'll be greeted with genuine warmth and hospitality. We're here to make
-                you feel at home.
+                Our greeters will welcome you at the door and help you find your way around.
               </p>
             </div>
           </div>
+
           <div className="icon-card">
-            <Music className="icon-card-icon" size={32} />
+            <Users size={48} className="icon-card-icon" />
             <div>
-              <h3 className="icon-card-title">Passionate, Spirit-Filled Worship</h3>
+              <h3 className="icon-card-title">Friendly Atmosphere</h3>
               <p className="icon-card-text">
-                Experience authentic worship that honors God and creates space for His presence to move among us.
+                Experience genuine community where everyone is valued and accepted.
               </p>
             </div>
           </div>
+
           <div className="icon-card">
-            <BookOpen className="icon-card-icon" size={32} />
+            <Heart size={48} className="icon-card-icon" />
             <div>
-              <h3 className="icon-card-title">Relevant, Bible-Based Teaching</h3>
+              <h3 className="icon-card-title">Authentic Worship</h3>
               <p className="icon-card-text">
-                Receive practical, life-giving teaching rooted in Scripture that speaks to your everyday life.
+                Join us in heartfelt worship with contemporary music and traditional hymns.
               </p>
             </div>
           </div>
+
           <div className="icon-card">
-            <Users className="icon-card-icon" size={32} />
+            <Coffee size={48} className="icon-card-icon" />
             <div>
-              <h3 className="icon-card-title">Opportunities for Growth</h3>
+              <h3 className="icon-card-title">Refreshments</h3>
               <p className="icon-card-text">
-                Connect with opportunities for prayer, spiritual growth, and meaningful relationships with a church
-                family that values love, unity, and truth.
+                Enjoy coffee and light refreshments before and after the service.
+              </p>
+            </div>
+          </div>
+
+          <div className="icon-card">
+            <Clock size={48} className="icon-card-icon" />
+            <div>
+              <h3 className="icon-card-title">Service Length</h3>
+              <p className="icon-card-text">
+                Our services typically last about 90 minutes, including worship and teaching.
+              </p>
+            </div>
+          </div>
+
+          <div className="icon-card">
+            <MapPin size={48} className="icon-card-icon" />
+            <div>
+              <h3 className="icon-card-title">Easy Parking</h3>
+              <p className="icon-card-text">
+                Ample free parking is available in our lot and on surrounding streets.
               </p>
             </div>
           </div>
         </div>
       </PageSection>
 
-      <PageSection>
-        <SectionTitle>Come as You Are</SectionTitle>
-        <BodyText>
-          You don't need to dress up or have it all together. Come as you are, and let God meet you where you are. Our
-          church is a place of grace, acceptance, and transformation.
-        </BodyText>
-        <BodyText>
-          Whether you're seeking answers, looking for community, or simply curious about faith, we're here to walk
-          alongside you on your journey.
-        </BodyText>
-        <div className="flex flex-col sm:flex-row gap-4 mt-8">
-          <Link to="/connect" className="btn-primary text-center">
-            Get Service Times & Location
-          </Link>
-          <Link to="/gathering-at-6" className="btn-secondary text-center">
-            Learn About The Gathering at 6
-          </Link>
+      {/* Service Times & Location */}
+      <PageSection background="muted">
+        <div className="max-w-5xl mx-auto">
+          <SectionTitle className="text-center">
+            <span className="section-title-decorated">Service Times & Location</span>
+          </SectionTitle>
+          <div className="grid md:grid-cols-2 gap-8 mt-10">
+            <div className="card-surface p-10">
+              <Clock size={48} className="text-accent mb-6" />
+              <h3 className="text-3xl font-bold text-primary mb-6 font-display">When We Meet</h3>
+              <div className="space-y-4 text-lg">
+                <div>
+                  <p className="font-bold text-accent text-xl">Sunday Morning Worship</p>
+                  <p className="text-foreground">10:00 AM</p>
+                </div>
+                <div>
+                  <p className="font-bold text-accent text-xl">The Gathering at 6</p>
+                  <p className="text-foreground">6:00 PM (Evening Service)</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="card-surface p-10">
+              <MapPin size={48} className="text-accent mb-6" />
+              <h3 className="text-3xl font-bold text-primary mb-6 font-display">Where We Meet</h3>
+              <div className="text-lg text-foreground space-y-2">
+                <p className="font-semibold">KMI Fellowship of Churches</p>
+                <p>123 Faith Avenue</p>
+                <p>Your City, ST 12345</p>
+                <a
+                  href="#"
+                  className="inline-block mt-4 text-accent hover:text-secondary font-bold transition-colors duration-200 underline underline-offset-4"
+                >
+                  Get Directions →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </PageSection>
+
+      {/* Call to Action */}
+      <PageSection className="textured-surface">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-display font-black text-primary mb-6">
+            Ready to Visit?
+          </h2>
+          <BodyText className="text-foreground/70 mb-8">
+            We can't wait to meet you! If you have any questions or would like to schedule a personal tour, feel free to
+            reach out.
+          </BodyText>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/prayer-request" className="btn-primary inline-block">
+              Contact Us
+            </Link>
+            <Link to="/schedule-meeting" className="btn-secondary inline-block">
+              Schedule a Meeting
+            </Link>
+          </div>
         </div>
       </PageSection>
     </>

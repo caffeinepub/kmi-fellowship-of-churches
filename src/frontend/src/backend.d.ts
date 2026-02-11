@@ -7,6 +7,18 @@ export interface None {
     __kind__: "None";
 }
 export type Option<T> = Some<T> | None;
+export interface PrayerRequest {
+    id: bigint;
+    isEmergency: boolean;
+    status: RequestStatus;
+    urgencyLevel: UrgencyLevel;
+    prayerRequest: string;
+    fullName: string;
+    submittedAt: bigint;
+    submittedBy?: Principal;
+    emailAddress: string;
+    phoneNumber?: string;
+}
 export interface AppointmentRequest {
     urgencyLevel: UrgencyLevel;
     fullName: string;
@@ -27,6 +39,11 @@ export interface UserProfile {
     email: string;
     phone: string;
 }
+export enum RequestStatus {
+    resolved = "resolved",
+    open = "open",
+    inProgress = "inProgress"
+}
 export enum RequestType {
     other = "other",
     speakingEngagement = "speakingEngagement",
@@ -46,11 +63,17 @@ export enum UserRole {
 }
 export interface backendInterface {
     assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
+    getAllPrayerRequests(): Promise<Array<PrayerRequest>>;
     getAllRequests(): Promise<Array<AppointmentRequest>>;
     getCallerUserProfile(): Promise<UserProfile | null>;
     getCallerUserRole(): Promise<UserRole>;
+    getEmergencyPrayerRequests(): Promise<Array<PrayerRequest>>;
+    getPrayerRequest(id: bigint): Promise<PrayerRequest | null>;
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     isCallerAdmin(): Promise<boolean>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
     submitAppointmentRequest(request: AppointmentRequest): Promise<void>;
+    submitEmergencyPrayer(fullName: string, emailAddress: string, prayerRequest: string): Promise<bigint>;
+    submitPrayerRequest(fullName: string, emailAddress: string, phoneNumber: string | null, prayerRequest: string, urgencyLevel: UrgencyLevel): Promise<bigint>;
+    updatePrayerRequestStatus(id: bigint, newStatus: RequestStatus): Promise<void>;
 }

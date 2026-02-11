@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router';
 import PageSection from '../components/PageSection';
 import { PageTitle, SectionTitle, BodyText } from '../components/Typography';
 import MinistrySealsSection from '../components/MinistrySealsSection';
@@ -5,76 +6,92 @@ import MinistrySealsSection from '../components/MinistrySealsSection';
 export default function MinistriesPage() {
   return (
     <>
-      <PageSection>
-        <PageTitle>Our Ministries</PageTitle>
-        <BodyText>
-          KMI Fellowship offers a variety of ministries designed to meet people where they are and help them grow.
-          There is a place for everyone to serve, grow, and connect.
-        </BodyText>
+      {/* Hero Section */}
+      <PageSection background="muted">
+        <div className="text-center max-w-4xl mx-auto">
+          <PageTitle>Our Ministries</PageTitle>
+          <BodyText className="text-foreground/70">
+            At KMI Fellowship, we offer a variety of ministries designed to help you grow in faith, connect with others,
+            and serve the community.
+          </BodyText>
+        </div>
       </PageSection>
 
-      <PageSection background="muted">
-        <div className="space-y-6">
+      {/* Ministry Descriptions */}
+      <PageSection className="textured-surface">
+        <SectionTitle className="text-center">
+          <span className="section-title-decorated">Get Involved</span>
+        </SectionTitle>
+        <div className="space-y-8 max-w-5xl mx-auto mt-10">
           <div className="card-surface p-8">
-            <h3 className="icon-card-title">Worship & Word Ministry</h3>
-            <BodyText className="mb-0">
-              Spirit-led services centered on biblical truth. Experience passionate worship and relevant teaching that
-              transforms lives and draws us closer to God.
-            </BodyText>
+            <h3 className="text-3xl font-bold text-primary mb-4 font-display">Worship & Arts</h3>
+            <p className="text-foreground leading-relaxed text-lg">
+              Join our worship team, choir, or creative arts ministry to use your gifts in leading others into God's
+              presence through music, drama, and visual arts.
+            </p>
           </div>
 
           <div className="card-surface p-8">
-            <h3 className="icon-card-title">Men's & Women's Ministries</h3>
-            <BodyText className="mb-0">
-              Building strong faith, character, and community. Our gender-specific ministries provide a safe space for
-              growth, accountability, and fellowship.
-            </BodyText>
+            <h3 className="text-3xl font-bold text-primary mb-4 font-display">Children & Youth</h3>
+            <p className="text-foreground leading-relaxed text-lg">
+              We provide age-appropriate programs for children and teens, including Sunday School, youth group, and
+              special events designed to help young people grow in their faith.
+            </p>
           </div>
 
           <div className="card-surface p-8">
-            <h3 className="icon-card-title">Discipleship & Leadership Training</h3>
-            <BodyText className="mb-0">
-              Equipping believers to walk boldly in their calling. Through intentional training and mentorship, we
-              develop leaders who serve with integrity and purpose.
-            </BodyText>
+            <h3 className="text-3xl font-bold text-primary mb-4 font-display">Small Groups</h3>
+            <p className="text-foreground leading-relaxed text-lg">
+              Connect with others in a small group setting for Bible study, prayer, and fellowship. Small groups meet
+              throughout the week in various locations.
+            </p>
           </div>
 
           <div className="card-surface p-8">
-            <h3 className="icon-card-title">Youth & Family Support</h3>
-            <BodyText className="mb-0">
-              Encouraging the next generation in faith and purpose. We invest in young people and families, providing
-              support, guidance, and opportunities for spiritual growth.
-            </BodyText>
+            <h3 className="text-3xl font-bold text-primary mb-4 font-display">Outreach & Missions</h3>
+            <p className="text-foreground leading-relaxed text-lg">
+              Serve the community through local outreach programs and support global missions. Opportunities include food
+              distribution, community events, and mission trips.
+            </p>
           </div>
 
           <div className="card-surface p-8">
-            <h3 className="icon-card-title">Community Outreach & Charity</h3>
-            <BodyText className="mb-0">
-              Feeding the hungry, supporting families, and serving those in need. We believe in meeting both spiritual
-              and practical needs with compassion and generosity.
-            </BodyText>
+            <h3 className="text-3xl font-bold text-primary mb-4 font-display">Prayer Ministry</h3>
+            <p className="text-foreground leading-relaxed text-lg">
+              Join our prayer team to intercede for our church, community, and world. Prayer meetings are held weekly, and
+              prayer requests are always welcome.
+            </p>
+          </div>
+
+          <div className="card-surface p-8">
+            <h3 className="text-3xl font-bold text-primary mb-4 font-display">Hospitality & Welcome</h3>
+            <p className="text-foreground leading-relaxed text-lg">
+              Help create a warm and welcoming environment for guests and members through greeting, ushering, and
+              hospitality services.
+            </p>
           </div>
         </div>
       </PageSection>
 
-      <PageSection>
-        <SectionTitle>Ministry Seals</SectionTitle>
-        <BodyText>
-          Our ministry seals represent the heart and mission of KMI Fellowship. Each seal embodies our commitment to
-          faith, service, and community. View our official ministry seals and upcoming events below.
-        </BodyText>
+      {/* Ministry Seals */}
+      <PageSection background="muted">
         <MinistrySealsSection />
       </PageSection>
 
-      <PageSection background="muted">
-        <SectionTitle>Get Involved</SectionTitle>
-        <BodyText>
-          Every ministry at KMI Fellowship exists to help you grow in your faith and discover your purpose. Whether
-          you're looking to serve, learn, or connect with others, there's a place for you.
-        </BodyText>
-        <BodyText>
-          Contact us to learn more about how you can get involved in one of our ministries.
-        </BodyText>
+      {/* Call to Action */}
+      <PageSection className="textured-surface">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-display font-black text-primary mb-6">
+            Find Your Place to Serve
+          </h2>
+          <BodyText className="text-foreground/70 mb-8">
+            Every member has a role to play in the body of Christ. Discover your gifts and find a ministry where you can
+            make a difference.
+          </BodyText>
+          <Link to="/get-involved" className="btn-primary inline-block">
+            Get Connected
+          </Link>
+        </div>
       </PageSection>
     </>
   );
